@@ -26,7 +26,7 @@ print('Email: ' + __email__)
 print('Status: ' + __status__)
 print('# ' + '=' * 78)
 
-st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status Details", page_icon="🎄")
+st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status", page_icon="🎄")
 
 def load_gif(workflow_name):
     if workflow_name == "System Preparation & Initial Deployment":
@@ -71,27 +71,28 @@ def create_workflow_stages(workflow_name):
         st.write("\n")
         st.write("\n")
 
-        with st.expander("Status", expanded=True):
+        with st.expander("Stages", expanded=True):
             col1, col2, col3, col4, col5, col6 = st.columns(6)
             with col1:
                 switch_value1 = ui.switch(default_checked=False, label="Initial SEQ", key="switch1")
                 st.write("Completed:", switch_value1)
             with col2:
-                switch_value2 = ui.switch(default_checked=False, label="Installation Plan & Report", key="switch2")
+                switch_value2 = ui.switch(default_checked=False, label="Inst Plan & Report", key="switch2")
                 st.write("Completed:", switch_value2)
             with col3:
-                switch_value3 = ui.switch(default_checked=False, label="Installation Plan & Report", key="switch3")
+                switch_value3 = ui.switch(default_checked=False, label="Deploy Plan & Report", key="switch3")
                 st.write("Completed:", switch_value3)
             with col4:
                 switch_value4 = ui.switch(default_checked=False, label="Deployment SEQ", key="switch4")
                 st.write("Completed:", switch_value4)
             with col5:
-                switch_value5 = ui.switch(default_checked=False, label="Installation Qualification", key="switch5")
+                switch_value5 = ui.switch(default_checked=False, label="Inst Qualification", key="switch5")
                 st.write("Completed:", switch_value5)
             with col6:
                 switch_value6 = ui.switch(default_checked=False, label="Servat Execution", key="switch6")
                 st.write("Completed:", switch_value6)
 
+            txt = st.text_area("Notes", "Enter any observations")
             st.write("---")
 
             if switch_value1 and switch_value2 and switch_value3 and switch_value4 and switch_value5 and switch_value6:
@@ -121,6 +122,7 @@ def create_workflow_stages(workflow_name):
                 uc_switch_value4 = ui.switch(default_checked=False, label="Servat Execution", key="ucswitch4")
                 st.write("Completed:", uc_switch_value4)
 
+            txt = st.text_area("Notes", "Enter any observations")
             st.write("---")
 
             if uc_switch_value1 and uc_switch_value2 and uc_switch_value3 and uc_switch_value4:
@@ -150,6 +152,7 @@ def create_workflow_stages(workflow_name):
                 un_switch_value4 = ui.switch(default_checked=False, label="Servat Execution", key="unswitch4")
                 st.write("Completed:", un_switch_value4)
 
+            txt = st.text_area("Notes", "Enter any observations")
             st.write("---")
 
             if un_switch_value1 and un_switch_value2 and un_switch_value3 and un_switch_value4:
@@ -236,14 +239,11 @@ def home():
                 st.metric(label=":point_down: Status", value="No", delta="")
 
     if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
-        #st.markdown("Overall Status: :point_right: Completed")
         st.success('Overall Status: :point_right: Completed')
         st.balloons()
     elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3 and not home_switch_value4:
-        #st.markdown("Overall Status: :point_right: Not Started")
         st.warning('Overall Status: :point_right: Not Started')
     else:
-        #st.markdown("Overall Status: :point_right: In Progress")
         st.info('Overall Status: :point_right: In Progress')
 
     st.write("\n")
