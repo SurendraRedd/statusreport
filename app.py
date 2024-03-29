@@ -177,6 +177,13 @@ def home():
         </body>
     """
     st.markdown(html_temp, unsafe_allow_html=True)    
+
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+
     st.title(":point_down: Azure SaaS Release - Round 2 Status Details")
     st.markdown("---")
     st.write("\n")
@@ -249,6 +256,13 @@ def workflow1():
         </body>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+
     create_workflow_stages("System Preparation & Initial Deployment")    
 
 def workflow2():
@@ -269,6 +283,13 @@ def workflow2():
         </body>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+
     create_workflow_stages("Update Configuration")
 
 def workflow3():
@@ -289,6 +310,13 @@ def workflow3():
         </body>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+    
     create_workflow_stages("Uninstallation")
 
 # Create navigation
