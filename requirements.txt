@@ -1,0 +1,4 @@
+streamlit
+st-star-rating
+streamlit-dynamic-filters
+streamlit-shadcn-ui
