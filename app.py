@@ -14,6 +14,8 @@ import datetime  # noqa: E402
 import streamlit_shadcn_ui as ui  # noqa: E402
 import base64
 from streamlit_star_rating import st_star_rating  # noqa: E402
+from streamlit_option_menu import option_menu
+from streamlit_extras.metric_cards import style_metric_cards
 
 
 print('# ' + '=' * 78)
@@ -171,12 +173,12 @@ def home():
     # Header template
     html_temp = """
         <body style="background-color:red;">
-        <div style="background-color:tomato;padding:10px">
+        <div style="background-color:blue;padding:10px">
         <h3 style="color:white;text-align:center;"> Home Page</h3>
         </div>
         </body>
     """
-    st.markdown(html_temp, unsafe_allow_html=True)    
+    #st.markdown(html_temp, unsafe_allow_html=True)    
 
     hide_footer_style = """
     <style>
@@ -199,27 +201,39 @@ def home():
     # Status in each column
     with col1:
         st.subheader("System Preparation")
-        with st.expander("Status", expanded=True):
-            home_switch_value1 = ui.switch(default_checked=False, label="System Preparation", key="homeswitch1")
-            st.write("Completed:", home_switch_value1)
+        with st.expander("Details", expanded=True):
+            home_switch_value1 = ui.switch(default_checked=False, label="System Preparation (Yes/No)", key="homeswitch1")
+            if home_switch_value1:
+                st.metric(label=":point_down: Status", value="Yes", delta="")
+            else:
+                st.metric(label=":point_down: Status", value="No", delta="")
 
     with col2:
         st.subheader("Initial Deployment")
-        with st.expander("Status", expanded=True):
-            home_switch_value2 = ui.switch(default_checked=False, label="Initial Deployment", key="homeswitch2")
-            st.write("Completed:", home_switch_value2)
+        with st.expander("Details", expanded=True):
+            home_switch_value2 = ui.switch(default_checked=False, label="Initial Deployment (Yes/No)", key="homeswitch2")
+            if home_switch_value2:
+                st.metric(label=":point_down: Status", value="Yes", delta="")
+            else:
+                st.metric(label=":point_down: Status", value="No", delta="")
 
     with col3:
         st.subheader("Update Configuration")
-        with st.expander("Status", expanded=True):
-            home_switch_value3 = ui.switch(default_checked=False, label="Update Configuration", key="homeswitch3")
-            st.write("Completed:", home_switch_value3)
+        with st.expander("Details", expanded=True):
+            home_switch_value3 = ui.switch(default_checked=False, label="Update Configuration (Yes/No)", key="homeswitch3")
+            if home_switch_value3:
+                st.metric(label=":point_down: Status", value="Yes", delta="")
+            else:
+                st.metric(label=":point_down: Status", value="No", delta="")           
 
     with col4:
         st.subheader("Uninstallation")
-        with st.expander("Status", expanded=True):
-            home_switch_value4 = ui.switch(default_checked=False, label="Uninstallation", key="homeswitch4")
-            st.write("Completed:", home_switch_value4)
+        with st.expander("Details", expanded=True):
+            home_switch_value4 = ui.switch(default_checked=False, label="Uninstallation (Yes/No)", key="homeswitch4")
+            if home_switch_value4:
+                st.metric(label=":point_down: Status", value="Yes", delta="")
+            else:
+                st.metric(label=":point_down: Status", value="No", delta="")
 
     if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
         #st.markdown("Overall Status: :point_right: Completed")
@@ -320,14 +334,18 @@ def workflow3():
     create_workflow_stages("Uninstallation")
 
 # Create navigation
-navigation = st.sidebar.radio("Navigation", ["Home", "System Prep + Initial Deployment", "Update Configuration", "Uninstallation"])
+#navigation = st.sidebar.radio("Navigation", ["Home", "System Prep + Initial Deployment", "Update Configuration", "Uninstallation"])
+with st.sidebar:
+    selected2 = option_menu(None, ["Home", "System Prep + Initial Deployment", "Update Configuration", 'Uninstallation'], 
+        icons=['house', 'cloud-upload', "list-task", 'gear'], 
+        menu_icon="cast", default_index=0)
 
 # Display selected page
-if navigation == "Home":
+if selected2 == "Home":
     home()
-elif navigation == "System Prep + Initial Deployment":
+elif selected2 == "System Prep + Initial Deployment":
     workflow1()
-elif navigation == "Update Configuration":
+elif selected2 == "Update Configuration":
     workflow2()
-elif navigation == "Uninstallation":
+elif selected2 == "Uninstallation":
     workflow3()
