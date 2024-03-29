@@ -160,6 +160,14 @@ def create_workflow_stages(workflow_name):
 
 # Define the main function for each page
 def home():
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
     # Header template
     html_temp = """
         <body style="background-color:red;">
@@ -168,7 +176,7 @@ def home():
         </div>
         </body>
     """
-    st.markdown(html_temp, unsafe_allow_html=True)
+    st.markdown(html_temp, unsafe_allow_html=True)    
     st.title(":point_down: Azure SaaS Release - Round 2 Status Details")
     st.markdown("---")
     st.write("\n")
@@ -224,6 +232,14 @@ def home():
     st_star_rating(label = "Please rate you experience", maxValue = 5, defaultValue = 4, key = "rating", emoticons = True )
 
 def workflow1():
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
     # Header template
     html_temp = """
         <body style="background-color:red;">
@@ -236,6 +252,14 @@ def workflow1():
     create_workflow_stages("System Preparation & Initial Deployment")    
 
 def workflow2():
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
     # Header template
     html_temp = """
         <body style="background-color:red;">
@@ -248,6 +272,14 @@ def workflow2():
     create_workflow_stages("Update Configuration")
 
 def workflow3():
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
     # Header template
     html_temp = """
         <body style="background-color:red;">
