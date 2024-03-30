@@ -100,11 +100,12 @@ def create_workflow_stages(workflow_name):
             st.write("---")
 
             if switch_value1 and switch_value2 and switch_value3 and switch_value4 and switch_value5 and switch_value6:
-                st.success('Overall Status: :point_right: Completed')
+                st.success('Overall Status: :point_right: Completed', icon="✅")
+                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 3))
             elif not switch_value1 and not switch_value2 and not switch_value3 and not switch_value4 and not switch_value5 and not switch_value6:
-                st.warning('Overall Status: :point_right: Not Started')
+                st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
-                st.info('Overall Status: :point_right: In Progress')
+                st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
     if workflow_name == "Update Configuration":
         load_gif(workflow_name)
@@ -142,11 +143,12 @@ def create_workflow_stages(workflow_name):
             st.write("---")
 
             if uc_switch_value1 and uc_switch_value2 and uc_switch_value3 and uc_switch_value4:
-                st.success('Overall Status: :point_right: Completed')
+                st.success('Overall Status: :point_right: Completed', icon="✅")
+                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 4))
             elif not uc_switch_value1 and not uc_switch_value2 and not uc_switch_value3 and not uc_switch_value4:
-                st.warning('Overall Status: :point_right: Not Started')
+                st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
-                st.info('Overall Status: :point_right: In Progress')
+                st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
     if workflow_name == "Uninstallation":        
         load_gif(workflow_name)
@@ -184,11 +186,12 @@ def create_workflow_stages(workflow_name):
             st.write("---")
 
             if un_switch_value1 and un_switch_value2 and un_switch_value3 and un_switch_value4:
-                st.success('Overall Status: :point_right: Completed')
+                st.success('Overall Status: :point_right: Completed', icon="✅")
+                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 5))
             elif not un_switch_value1 and not un_switch_value2 and not un_switch_value3 and not un_switch_value4:
-                st.warning('Overall Status: :point_right: Not Started')
+                st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
-                st.info('Overall Status: :point_right: In Progress')
+                st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
 
 # Define the main function for each page
@@ -222,7 +225,8 @@ def home():
     st.write("\n")
 
     st.subheader("Phases")
-    st.date_input(":point_down: Execution Start Date", datetime.date(2024, 4, 2))
+    st.write("\n")
+    st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
 
     # Create three columns
     col1, col2, col3, col4 = st.columns(4)
@@ -265,12 +269,15 @@ def home():
                 st.metric(label=":point_down: Completed", value="No", delta="")
 
     if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
-        st.success('Overall Status: :point_right: Completed')
+        st.success('Overall Status: :point_right: Completed', icon="✅")
+        st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 5))
     elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3 and not home_switch_value4:
-        st.warning('Overall Status: :point_right: Not Started')
+        st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
     else:
-        st.info('Overall Status: :point_right: In Progress')
+        st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
+    st.write("\n")
+    st.write("\n")
     st.write("\n")
     st.write("\n")
     st.write("---")
@@ -361,9 +368,8 @@ def workflow3():
     create_workflow_stages("Uninstallation")
 
 # Create navigation
-#navigation = st.sidebar.radio("Navigation", ["Home", "System Prep + Initial Deployment", "Update Configuration", "Uninstallation"])
 with st.sidebar:
-    st.image('./Logo.png', caption='')
+    #st.image('./Logo.png', caption='')
     selected2 = option_menu(None, ["Home", "System Prep + Initial Deployment", "Update Configuration", 'Uninstallation'], 
         icons=['house', 'cloud-upload', "list-task", 'gear'], 
         menu_icon="cast", default_index=0)
