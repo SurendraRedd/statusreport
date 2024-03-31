@@ -55,6 +55,11 @@ def load_gif(workflow_name):
 
 # Define function to create stages for each workflow
 def create_workflow_stages(workflow_name):
+    """workflow stages
+
+    Args:
+        workflow_name (string): workflow name
+    """
     st.write("\n")
     if workflow_name == "System Preparation & Initial Deployment":
         load_gif(workflow_name)
@@ -200,6 +205,9 @@ def create_workflow_stages(workflow_name):
 
 # Define the main function for each page
 def home():
+    """ main function
+    Args: NA
+    """
     hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}

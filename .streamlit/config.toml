@@ -1,7 +1,7 @@
 [theme]
 base="dark"
 primaryColor="purple"
-font="monospace"
+font="sans serif"
 
 [server]
 enableStaticServing = true
