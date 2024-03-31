@@ -4,3 +4,4 @@ streamlit-dynamic-filters
 streamlit-shadcn-ui
 streamlit-option-menu
 streamlit-extras
+mkdocs-material
