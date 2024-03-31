@@ -14,8 +14,13 @@ from streamlit_extras.metric_cards import style_metric_cards
 st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status", page_icon=":writing_hand:")
 
 def load_gif(workflow_name):
+    """load gif method
+
+    Args:
+        workflow_name (string): Name of the workflow
+    """
     if workflow_name == "System Preparation & Initial Deployment":
-        file_ = open("./systemprep_deploy.gif", "rb")
+        file_ = open("./static/systemprep_deploy.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
@@ -27,7 +32,7 @@ def load_gif(workflow_name):
             )
 
     if workflow_name == "Update Configuration":
-        file_ = open("./update_config.gif", "rb")
+        file_ = open("./static/update_config.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
@@ -38,7 +43,7 @@ def load_gif(workflow_name):
             )
     
     if workflow_name == "Uninstallation":
-        file_ = open("./uninstall.gif", "rb")
+        file_ = open("./static/uninstall.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
@@ -50,7 +55,6 @@ def load_gif(workflow_name):
 
 # Define function to create stages for each workflow
 def create_workflow_stages(workflow_name):
-    #st.subheader(workflow_name)
     st.write("\n")
     if workflow_name == "System Preparation & Initial Deployment":
         load_gif(workflow_name)
@@ -224,9 +228,9 @@ def home():
     st.markdown("---")
     st.write("\n")
 
+    st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
     st.subheader("Phases")
     st.write("\n")
-    st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
 
     # Create three columns
     col1, col2, col3, col4 = st.columns(4)
