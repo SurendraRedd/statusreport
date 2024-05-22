@@ -3,13 +3,14 @@ This application contains the code related to the
 Azure SaaS Release - Round 2 Status Details dashboard.
 """
 
-import streamlit as st  # noqa: E402
+import streamlit as st  # type: ignore # noqa: E402
 import datetime  # noqa: E402
-import streamlit_shadcn_ui as ui  # noqa: E402
+import streamlit_shadcn_ui as ui  # type: ignore # noqa: E402
 import base64
-from streamlit_star_rating import st_star_rating  # noqa: E402
-from streamlit_option_menu import option_menu
-from streamlit_extras.metric_cards import style_metric_cards
+from streamlit_star_rating import st_star_rating  # type: ignore # noqa: E402
+from streamlit_option_menu import option_menu # type: ignore
+from streamlit_extras.stodo import to_do # type: ignore
+import hmac
 
 st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status", page_icon=":writing_hand:")
 
@@ -110,7 +111,7 @@ def create_workflow_stages(workflow_name):
 
             if switch_value1 and switch_value2 and switch_value3 and switch_value4 and switch_value5 and switch_value6:
                 st.success('Overall Status: :point_right: Completed', icon="✅")
-                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 3))
+                st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 3))
             elif not switch_value1 and not switch_value2 and not switch_value3 and not switch_value4 and not switch_value5 and not switch_value6:
                 st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
@@ -153,7 +154,7 @@ def create_workflow_stages(workflow_name):
 
             if uc_switch_value1 and uc_switch_value2 and uc_switch_value3 and uc_switch_value4:
                 st.success('Overall Status: :point_right: Completed', icon="✅")
-                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 4))
+                st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 4))
             elif not uc_switch_value1 and not uc_switch_value2 and not uc_switch_value3 and not uc_switch_value4:
                 st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
@@ -167,7 +168,7 @@ def create_workflow_stages(workflow_name):
         with st.expander("Stages", expanded=True):
             col1, col2, col3, col4 = st.columns(4)
             with col1:
-                un_switch_value1 = ui.switch(default_checked=False, label="Deployment SEQ (Yes/No)", key="unswitch1")
+                un_switch_value1 = ui.switch(default_checked=False, label="Update Config SEQ (Yes/No)", key="unswitch1")
                 if un_switch_value1:
                     st.metric(label=":point_down: Completed", value="Yes", delta="")
                 else:
@@ -179,7 +180,7 @@ def create_workflow_stages(workflow_name):
                 else:
                     st.metric(label=":point_down: Completed", value="No", delta="")
             with col3:
-                un_switch_value3 = ui.switch(default_checked=False, label="Update Config SEQ (Yes/No)", key="unswitch3")
+                un_switch_value3 = ui.switch(default_checked=False, label="Uninstallation SEQ (Yes/No)", key="unswitch3")
                 if un_switch_value3:
                     st.metric(label=":point_down: Completed", value="Yes", delta="")
                 else:
@@ -196,12 +197,48 @@ def create_workflow_stages(workflow_name):
 
             if un_switch_value1 and un_switch_value2 and un_switch_value3 and un_switch_value4:
                 st.success('Overall Status: :point_right: Completed', icon="✅")
-                st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 5))
+                st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 5))
             elif not un_switch_value1 and not un_switch_value2 and not un_switch_value3 and not un_switch_value4:
                 st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
             else:
                 st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
+
+def check_password():
+    """Returns `True` if the user had a correct password."""
+
+    def login_form():
+        """Form with widgets to collect user information"""
+        with st.form("Credentials"):
+            st.text_input("Username", key="username")
+            st.text_input("Password", type="password", key="password")
+            st.form_submit_button("Log in", on_click=password_entered)
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if st.session_state["username"] in st.secrets[
+            "passwords"
+        ] and hmac.compare_digest(
+            st.session_state["password"],
+            st.secrets.passwords[st.session_state["username"]],
+        ):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the username or password.
+            del st.session_state["username"]
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the username + password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    st.title("Servat Execution Status")
+    st.write("\n")
+    # Show inputs for username + password.
+    login_form()
+    if "password_correct" in st.session_state:
+        st.error("😕 User not known or password incorrect")
+    return False
 
 # Define the main function for each page
 def home():
@@ -236,8 +273,13 @@ def home():
     st.markdown("---")
     st.write("\n")
 
+    st.subheader("Prerequisites")
+    to_do([(st.write, "OSM Signature Completion")],"1",)
+    to_do([(st.write, "Installation Specification Signature Completion")],"2",)
+    st.markdown("---")
+
     st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
-    st.subheader("Phases")
+    st.subheader("Workflows")
     st.write("\n")
 
     # Create three columns
@@ -280,6 +322,8 @@ def home():
             else:
                 st.metric(label=":point_down: Completed", value="No", delta="")
 
+    txt = st.text_area("Notes", "")
+
     if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
         st.success('Overall Status: :point_right: Completed', icon="✅")
         st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 5))
@@ -288,9 +332,6 @@ def home():
     else:
         st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
     st.write("\n")
     st.write("---")
 
@@ -379,19 +420,199 @@ def workflow3():
     
     create_workflow_stages("Uninstallation")
 
-# Create navigation
-with st.sidebar:
-    #st.image('./Logo.png', caption='')
-    selected2 = option_menu(None, ["Home", "System Prep + Initial Deployment", "Update Configuration", 'Uninstallation'], 
-        icons=['house', 'cloud-upload', "list-task", 'gear'], 
-        menu_icon="cast", default_index=0)
 
-# Display selected page
-if selected2 == "Home":
-    home()
-elif selected2 == "System Prep + Initial Deployment":
-    workflow1()
-elif selected2 == "Update Configuration":
-    workflow2()
-elif selected2 == "Uninstallation":
-    workflow3()
+def main():
+    
+    
+    if not check_password():
+        st.stop()
+
+    with st.sidebar:
+        st.image('static/Logo.png', caption='')
+
+        mainmenu = option_menu(None, ["Azure SaaS", "Logging Collection", "CUPS"], 
+            icons=['cloud-upload', 'list-task', 'gear'], 
+            menu_icon="cast", default_index=0
+            )     
+    
+        
+    if mainmenu == "Azure SaaS":
+        # Create navigation
+        azuresaas_menu = option_menu(None, ["Home", "System Prep + Initial Deployment", "Update Configuration", 'Uninstallation'], 
+            icons=['house', 'cloud-upload', "list-task", 'gear'],
+            styles={
+            "container": {"padding": "0!important", "background-color": "#fafafa"},
+            "icon": {"color": "orange", "font-size": "25px"}, 
+            "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "green"},
+        }, 
+            menu_icon="cast", default_index=0,orientation="horizontal")
+
+        # Display selected page
+        if azuresaas_menu == "Home":
+            home()
+        elif azuresaas_menu == "System Prep + Initial Deployment":
+            workflow1()
+        elif azuresaas_menu == "Update Configuration":
+            workflow2()
+        elif azuresaas_menu == "Uninstallation":
+            workflow3()
+
+
+    if mainmenu == "Logging Collection":
+        # Create navigation
+        hide_st_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+        st.markdown(hide_st_style, unsafe_allow_html=True)
+        # Header template
+        html_temp = """
+            <body style="background-color:red;">
+            <div style="background-color:blue;padding:10px">
+            <h3 style="color:white;text-align:center;"> Home Page</h3>
+            </div>
+            </body>
+        """
+        #st.markdown(html_temp, unsafe_allow_html=True)    
+
+        hide_footer_style = """
+        <style>
+        .reportview-container .main footer {visibility: hidden;}    
+        """
+        st.markdown(hide_footer_style, unsafe_allow_html=True)
+
+        st.title(":point_down: Logging Collection Release - :blue[Execution Details]")
+        st.markdown("---")
+
+        st.subheader("Prerequisites")
+        with st.expander("Details", expanded=True):
+            to_do([(st.write, "OSM Signature Completed ?")],"1",)
+            to_do([(st.write, "System Requirements Signature Completed ?")],"2",)
+            to_do([(st.write, "Installation Guide Signature Completed ?")],"3",)
+            to_do([(st.write, "Installation Specification Signature Completed ?")],"4",)
+
+        st.subheader("Workflows")
+        st.date_input(":point_right: Execution Start Date", datetime.date(2024, 5, 22))
+        st.write("\n")
+
+        tab1, tab2 = st.tabs(["AKS Execution Details", "OCP Execution Details"])
+
+        with tab1:
+
+            # Create three columns
+            col1, col2, col3 = st.columns(3)
+
+            # Status in each column
+            with col1:
+                st.subheader("Installation")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Initial SEQ Signature Completed?")],"5",)
+                    to_do([(st.write, "Installation Plan & Report Signature Completed?")],"6",)
+                    to_do([(st.write, "Installation SEQ Signature Completed?")],"7",)
+                    to_do([(st.write, "Servat Execution Completed?")],"8",)
+                    home_switch_value1 = ui.switch(default_checked=False, label="Installation (Yes/No)", key="homeswitch1")
+                    if home_switch_value1:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")
+
+            with col2:
+                st.subheader("Installation with PVC")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Installation SEQ Signature Completed?")],"9",)
+                    to_do([(st.write, "Installation Plan & Report Signature Completed?")],"10",)
+                    to_do([(st.write, "Installation with PVC SEQ Signature Completed?")],"11",)
+                    to_do([(st.write, "Servat Execution Completed?")],"12",)
+                    home_switch_value2 = ui.switch(default_checked=False, label="Installation with PVC (Yes/No)", key="homeswitch2")
+                    if home_switch_value2:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")
+
+            with col3:
+                st.subheader("Uninstallation")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Installation with PVC SEQ Signature Completed?")],"13",)
+                    to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"14",)
+                    to_do([(st.write, "Uninstallation SEQ Signature Completed?")],"15",)
+                    to_do([(st.write, "Servat Execution Completed?")],"16",)
+                    home_switch_value3 = ui.switch(default_checked=False, label="Uninstallation (Yes/No)", key="homeswitch3")
+                    if home_switch_value3:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")           
+
+            txt = st.text_area("Notes", "")
+
+            if home_switch_value1 and home_switch_value2 and home_switch_value3:
+                st.success('Overall Status: :point_right: Completed', icon="✅")
+                st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 23, 5))
+            elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3:
+                st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
+            else:
+                st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
+
+        with tab2:
+
+            # Create three columns
+            col1, col2, col3 = st.columns(3)
+
+            # Status in each column
+            with col1:
+                st.subheader("Installation")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Initial SEQ Signature Completed?")],"17",)
+                    to_do([(st.write, "Installation Plan & Report Signature Completed?")],"18",)
+                    to_do([(st.write, "Installation SEQ Signature Completed?")],"19",)
+                    to_do([(st.write, "Servat Execution Completed?")],"20",)
+                    home_switch_value4 = ui.switch(default_checked=False, label="Installation (Yes/No)", key="homeswitch4")
+                    if home_switch_value4:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")
+
+            with col2:
+                st.subheader("Installation with PVC")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Installation SEQ Signature Completed?")],"21",)
+                    to_do([(st.write, "Installation Plan & Report Signature Completed?")],"22",)
+                    to_do([(st.write, "Installation with PVC SEQ Signature Completed?")],"23",)
+                    to_do([(st.write, "Servat Execution Completed?")],"24",)
+                    home_switch_value5 = ui.switch(default_checked=False, label="Installation with PVC (Yes/No)", key="homeswitch5")
+                    if home_switch_value5:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")
+
+            with col3:
+                st.subheader("Uninstallation")
+                with st.expander("Details", expanded=True):
+                    to_do([(st.write, "Installation with PVC SEQ Signature Completed?")],"25",)
+                    to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"26",)
+                    to_do([(st.write, "Uninstallation SEQ Signature Completed?")],"27",)
+                    to_do([(st.write, "Servat Execution Completed?")],"28",)
+                    home_switch_value6 = ui.switch(default_checked=False, label="Uninstallation (Yes/No)", key="homeswitch6")
+                    if home_switch_value6:
+                        st.metric(label=":point_down: Completed", value="Yes", delta="")
+                    else:
+                        st.metric(label=":point_down: Completed", value="No", delta="")           
+
+            txt1 = st.text_area("Observations", "")
+
+            if home_switch_value4 and home_switch_value5 and home_switch_value6:
+                st.success('Overall Status: :point_right: Completed', icon="✅")
+                st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 23, 5))
+            elif not home_switch_value4 and not home_switch_value5 and not home_switch_value6:
+                st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
+            else:
+                st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
+
+    st.write("\n")
+    st.write("---")
+
+if __name__ == "__main__":
+    main()
