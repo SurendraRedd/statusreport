@@ -21,7 +21,7 @@ def load_gif(workflow_name):
         workflow_name (string): Name of the workflow
     """
     if workflow_name == "System Preparation & Initial Deployment":
-        file_ = open("./static/systemprep_deploy.gif", "rb")
+        file_ = open("static/systemprep_deploy.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
@@ -33,7 +33,7 @@ def load_gif(workflow_name):
             )
 
     if workflow_name == "Update Configuration":
-        file_ = open("./static/update_config.gif", "rb")
+        file_ = open("static/update_config.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
@@ -44,7 +44,7 @@ def load_gif(workflow_name):
             )
     
     if workflow_name == "Uninstallation":
-        file_ = open("./static/uninstall.gif", "rb")
+        file_ = open("static/uninstall.gif", "rb")
         contents = file_.read()
         data_url = base64.b64encode(contents).decode("utf-8")
         file_.close()
