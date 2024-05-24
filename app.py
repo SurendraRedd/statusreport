@@ -7,6 +7,7 @@ import streamlit as st  # type: ignore # noqa: E402
 import datetime  # noqa: E402
 import streamlit_shadcn_ui as ui  # type: ignore # noqa: E402
 import base64
+import os
 from streamlit_star_rating import st_star_rating  # type: ignore # noqa: E402
 from streamlit_option_menu import option_menu # type: ignore
 from streamlit_extras.stodo import to_do # type: ignore
@@ -14,43 +15,30 @@ import hmac
 
 st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status", page_icon=":writing_hand:")
 
+# Get the path to the static folder
+static_folder = os.path.join(os.path.dirname(__file__), 'static')
+
 def load_gif(workflow_name):
     """load gif method
 
     Args:
         workflow_name (string): Name of the workflow
     """
-    if workflow_name == "System Preparation & Initial Deployment":
-        file_ = open("static/systemprep_deploy.gif", "rb")
-        contents = file_.read()
-        data_url = base64.b64encode(contents).decode("utf-8")
-        file_.close()
+    file_path = {
+        "System Preparation & Initial Deployment": "systemprep_deploy.gif",
+        "Update Configuration": "update_config.gif",
+        "Uninstallation": "uninstall.gif"
+    }.get(workflow_name, None)
+
+    if file_path:
+        full_path = os.path.join(static_folder, file_path)
+        with open(full_path, "rb") as file_:
+            contents = file_.read()
+            data_url = base64.b64encode(contents).decode("utf-8")
 
         with st.expander("See workflow below"):
             st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                unsafe_allow_html=True,
-            )
-
-    if workflow_name == "Update Configuration":
-        file_ = open("static/update_config.gif", "rb")
-        contents = file_.read()
-        data_url = base64.b64encode(contents).decode("utf-8")
-        file_.close()
-        with st.expander("See workflow below"):
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                unsafe_allow_html=True,
-            )
-    
-    if workflow_name == "Uninstallation":
-        file_ = open("static/uninstall.gif", "rb")
-        contents = file_.read()
-        data_url = base64.b64encode(contents).decode("utf-8")
-        file_.close()
-        with st.expander("See workflow below"):
-            st.markdown(
-                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+                f'<img src="data:image/gif;base64,{data_url}" alt="{workflow_name} gif">',
                 unsafe_allow_html=True,
             )
 
@@ -428,7 +416,7 @@ def main():
         st.stop()
 
     with st.sidebar:
-        st.image('static/Logo.png', caption='')
+        st.image(static_folder+'/logo.png', caption='')
 
         mainmenu = option_menu(None, ["Azure SaaS", "Logging Collection", "CUPS"], 
             icons=['cloud-upload', 'list-task', 'gear'], 
