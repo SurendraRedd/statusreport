@@ -12,11 +12,27 @@ from streamlit_star_rating import st_star_rating  # type: ignore # noqa: E402
 from streamlit_option_menu import option_menu # type: ignore
 from streamlit_extras.stodo import to_do # type: ignore
 import hmac
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
 
 st.set_page_config(layout="wide", page_title="Azure SaaS Release - Round 2 Status", page_icon=":writing_hand:")
 
 # Get the path to the static folder
 static_folder = os.path.join(os.path.dirname(__file__), 'static')
+
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
+
+name, authentication_status, username = authenticator.login('Login', 'sidebar')
 
 def load_gif(workflow_name):
     """load gif method
@@ -603,4 +619,6 @@ def main():
     st.write("---")
 
 if __name__ == "__main__":
+    hashed_passwords = stauth.Hasher(['abc', 'def']).generate()
+    print(hashed_passwords)
     main()

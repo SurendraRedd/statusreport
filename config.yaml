@@ -1,0 +1,21 @@
+credentials:
+  usernames:
+    servatadmin:
+      email: servat@servat.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Servat Admin
+      password: '$2b$12$e.a4JL6J4eqLQHpxDWX7WOdXJQNCXKCGbGLSv2lFbsxptvGmf1hKO' # Will be hashed automatically
+    servatuser:
+      email: rbriggs@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Servat User
+      password: '$2b$12$DosL.EfzItd5rBIHrtbE.urvzSv21nileIvE85tBSMRNhFHZ5K792' # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: test_signature_key # Must be string
+  name: test_cookie_name
+pre-authorized:
+  emails:
+  - servat@servat.com
