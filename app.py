@@ -24,15 +24,23 @@ static_folder = os.path.join(os.path.dirname(__file__), 'static')
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
-authenticator = Authenticate(
+authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
     config['cookie']['key'],
     config['cookie']['expiry_days'],
-    config['preauthorized']
+    config['pre-authorized']
 )
 
-name, authentication_status, username = authenticator.login('Login', 'sidebar')
+name, authentication_status, username = authenticator.login()
+
+if st.session_state["authentication_status"]:
+    authenticator.logout('Logout', 'main')
+    st.write(f'Welcome *{st.session_state["name"]}*')
+elif st.session_state["authentication_status"] == False:
+    st.error('Username/password is incorrect')
+elif st.session_state["authentication_status"] == None:
+    st.warning('Please enter your username and password')
 
 def load_gif(workflow_name):
     """load gif method
@@ -207,42 +215,6 @@ def create_workflow_stages(workflow_name):
             else:
                 st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
-
-def check_password():
-    """Returns `True` if the user had a correct password."""
-
-    def login_form():
-        """Form with widgets to collect user information"""
-        with st.form("Credentials"):
-            st.text_input("Username", key="username")
-            st.text_input("Password", type="password", key="password")
-            st.form_submit_button("Log in", on_click=password_entered)
-
-    def password_entered():
-        """Checks whether a password entered by the user is correct."""
-        if st.session_state["username"] in st.secrets[
-            "passwords"
-        ] and hmac.compare_digest(
-            st.session_state["password"],
-            st.secrets.passwords[st.session_state["username"]],
-        ):
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # Don't store the username or password.
-            del st.session_state["username"]
-        else:
-            st.session_state["password_correct"] = False
-
-    # Return True if the username + password is validated.
-    if st.session_state.get("password_correct", False):
-        return True
-
-    st.title("Servat Execution Status")
-    st.write("\n")
-    # Show inputs for username + password.
-    login_form()
-    if "password_correct" in st.session_state:
-        st.error("😕 User not known or password incorrect")
-    return False
 
 # Define the main function for each page
 def home():
@@ -428,9 +400,6 @@ def workflow3():
 def main():
     
     
-    if not check_password():
-        st.stop()
-
     with st.sidebar:
         st.image(static_folder+'/logo.png', caption='')
 
@@ -618,7 +587,5 @@ def main():
     st.write("\n")
     st.write("---")
 
-if __name__ == "__main__":
-    hashed_passwords = stauth.Hasher(['abc', 'def']).generate()
-    print(hashed_passwords)
+if __name__ == "__main__":    
     main()
