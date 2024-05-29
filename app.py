@@ -401,8 +401,8 @@ def main():
     
     
     with st.sidebar:
-        st.image(static_folder+'/logo.png', caption='')
-
+        #st.image(static_folder+'/logo.png', caption='')
+        st.subheader("Servat Executions")
         mainmenu = option_menu(None, ["Azure SaaS", "Logging Collection", "CUPS"], 
             icons=['cloud-upload', 'list-task', 'gear'], 
             menu_icon="cast", default_index=0
