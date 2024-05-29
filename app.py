@@ -443,10 +443,10 @@ def main():
 
     with st.sidebar:
         #st.image(static_folder+'/logo.png', caption='')
-        st.subheader("Servat Executions")
+        st.subheader("Components/SaaS Execution Tool")
         mainmenu = option_menu(None, ["Azure SaaS", "Logging Collection", "CUPS"], 
             icons=['cloud-upload', 'list-task', 'gear'], 
-            menu_icon="cast", default_index=0
+            menu_icon="cast", default_index=2
             )     
     
         
