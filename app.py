@@ -284,7 +284,7 @@ def home():
     """
     st.markdown(hide_footer_style, unsafe_allow_html=True)
 
-    st.title(":point_down: Azure SaaS Release - :blue[Round 2 Status Details]")
+    st.title(":point_down: SaaS Release Status- :blue[Status Details]")
     st.markdown("---")
     st.write("\n")
 
