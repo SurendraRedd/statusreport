@@ -9,7 +9,7 @@ from streamlit_option_menu import option_menu
 # Get the path to the static folder
 static_folder = os.path.join(os.path.dirname(__file__), 'static')
 
-st.title(":point_down: SaaS Release Status- :blue[Status Details]")
+st.subheader(":point_down: Azure SaaS Execution Status- :blue[Status Details]")
 st.markdown("---")
 st.write("\n")
 
@@ -73,7 +73,7 @@ with col4:
         else:
             st.metric(label=":point_down: Completed", value="No", delta="")
 
-txt = st.text_area("Notes", "")
+txt = st.text_area("Observations", "")
 
 if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
     st.success('Overall Status: :point_right: Completed', icon="✅")
@@ -204,7 +204,7 @@ def create_workflow_stages(workflow_name):
                 else:
                     st.metric(label=":point_down: Completed", value="No", delta="")
 
-            txt = st.text_area("Notes", "")
+            txt = st.text_area("UCnotes", "")
             st.write("---")
 
             if uc_switch_value1 and uc_switch_value2 and uc_switch_value3 and uc_switch_value4:
@@ -247,7 +247,7 @@ def create_workflow_stages(workflow_name):
                 else:
                     st.metric(label=":point_down: Completed", value="No", delta="")
 
-            txt = st.text_area("Notes", "")
+            txt = st.text_area("UnNotes", "")
             st.write("---")
 
             if un_switch_value1 and un_switch_value2 and un_switch_value3 and un_switch_value4:
