@@ -24,68 +24,6 @@ azuresaas_menu = option_menu(None, ["System Prep + Initial Deployment", "Update 
 }, 
     menu_icon="cast", default_index=0,orientation="horizontal")
 
-st.subheader("Prerequisites")
-to_do([(st.write, "OSM Signature Completion")],"1",)
-to_do([(st.write, "Installation Specification Signature Completion")],"2",)
-st.markdown("---")
-
-st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
-st.subheader("Workflows")
-st.write("\n")
-
-# Create three columns
-col1, col2, col3, col4 = st.columns(4)
-
-# Status in each column
-with col1:
-    st.subheader("System Preparation")
-    with st.expander("Details", expanded=True):
-        home_switch_value1 = ui.switch(default_checked=False, label="System Preparation (Yes/No)", key="homeswitch1")
-        if home_switch_value1:
-            st.metric(label=":point_down: Completed", value="Yes", delta="")
-        else:
-            st.metric(label=":point_down: Completed", value="No", delta="")
-
-with col2:
-    st.subheader("Initial Deployment")
-    with st.expander("Details", expanded=True):
-        home_switch_value2 = ui.switch(default_checked=False, label="Initial Deployment (Yes/No)", key="homeswitch2")
-        if home_switch_value2:
-            st.metric(label=":point_down: Completed", value="Yes", delta="")
-        else:
-            st.metric(label=":point_down: Completed", value="No", delta="")
-
-with col3:
-    st.subheader("Update Configuration")
-    with st.expander("Details", expanded=True):
-        home_switch_value3 = ui.switch(default_checked=False, label="Update Configuration (Yes/No)", key="homeswitch3")
-        if home_switch_value3:
-            st.metric(label=":point_down: Completed", value="Yes", delta="")
-        else:
-            st.metric(label=":point_down: Completed", value="No", delta="")           
-
-with col4:
-    st.subheader("Uninstallation")
-    with st.expander("Details", expanded=True):
-        home_switch_value4 = ui.switch(default_checked=False, label="Uninstallation (Yes/No)", key="homeswitch4")
-        if home_switch_value4:
-            st.metric(label=":point_down: Completed", value="Yes", delta="")
-        else:
-            st.metric(label=":point_down: Completed", value="No", delta="")
-
-txt = st.text_area("Observations", "")
-
-if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
-    st.success('Overall Status: :point_right: Completed', icon="✅")
-    st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 5))
-elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3 and not home_switch_value4:
-    st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
-else:
-    st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
-
-st.write("\n")
-st.write("---")
-
 def load_gif(workflow_name):
     """load gif method
 
@@ -340,6 +278,70 @@ def workflow3():
     st.markdown(hide_footer_style, unsafe_allow_html=True)
     
     create_workflow_stages("Uninstallation")
+
+
+st.subheader("Prerequisites")
+to_do([(st.write, "OSM Signature Completion")],"1",)
+to_do([(st.write, "Installation Specification Signature Completion")],"2",)
+st.markdown("---")
+
+st.date_input(":point_right: Execution Start Date", datetime.date(2024, 4, 2))
+st.subheader("Workflows")
+st.write("\n")
+
+# Create three columns
+col1, col2, col3, col4 = st.columns(4)
+
+# Status in each column
+with col1:
+    st.subheader("System Preparation")
+    with st.expander("Details", expanded=True):
+        home_switch_value1 = ui.switch(default_checked=False, label="System Preparation (Yes/No)", key="homeswitch1")
+        if home_switch_value1:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
+
+with col2:
+    st.subheader("Initial Deployment")
+    with st.expander("Details", expanded=True):
+        home_switch_value2 = ui.switch(default_checked=False, label="Initial Deployment (Yes/No)", key="homeswitch2")
+        if home_switch_value2:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
+
+with col3:
+    st.subheader("Update Configuration")
+    with st.expander("Details", expanded=True):
+        home_switch_value3 = ui.switch(default_checked=False, label="Update Configuration (Yes/No)", key="homeswitch3")
+        if home_switch_value3:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")           
+
+with col4:
+    st.subheader("Uninstallation")
+    with st.expander("Details", expanded=True):
+        home_switch_value4 = ui.switch(default_checked=False, label="Uninstallation (Yes/No)", key="homeswitch4")
+        if home_switch_value4:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
+
+txt = st.text_area("Observations", "")
+
+if home_switch_value1 and home_switch_value2 and home_switch_value3 and home_switch_value4:
+    st.success('Overall Status: :point_right: Completed', icon="✅")
+    st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 4, 5))
+elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3 and not home_switch_value4:
+    st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
+else:
+    st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
+
+st.write("\n")
+st.write("---")
+
 
 # Display selected page
 if azuresaas_menu == "System Prep + Initial Deployment":

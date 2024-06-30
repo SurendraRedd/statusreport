@@ -5,7 +5,7 @@ import hmac
 st.set_page_config(layout="wide", page_title="Formal Execution Status", page_icon=":writing_hand:")
 
 # Get the path to the static folder
-static_folder = os.path.join(os.path.dirname(__file__), 'static')
+#static_folder = os.path.join(os.path.dirname(__file__), 'static')
 
 
 def check_password():
@@ -60,13 +60,15 @@ def main():
         </div>
         </body>
     """
-    #st.markdown(html_temp, unsafe_allow_html=True)    
+    #st.markdown(html_temp, unsafe_allow_html=True)
 
     hide_footer_style = """
     <style>
     .reportview-container .main footer {visibility: hidden;}    
     """
     st.markdown(hide_footer_style, unsafe_allow_html=True)
+
+    #st.page_link("home.py", label="Home", icon="🏠")
 
     pages = {
         "🥇Components" : [
