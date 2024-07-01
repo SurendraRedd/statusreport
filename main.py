@@ -71,6 +71,10 @@ def main():
     #st.page_link("home.py", label="Home", icon="🏠")
 
     pages = {
+        "🏠 Home" :[
+            st.Page("home.py",icon=':material/home:',title="Home")
+        ],
+
         "🥇Components" : [
             st.Page("components/cups.py", icon= ':material/print:', title="CUPS"),
             st.Page("components/logging_collection.py", icon= ':material/description:', title="Logging Collection"),

@@ -1,3 +1,7 @@
 import streamlit as st
+import extra_streamlit_components as stx
 
-st.write("under construction")
+
+st.subheader(":blue[Servat Formal Release Execution Status Tool]")
+st.markdown("---")
+st.write("\n")

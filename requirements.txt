@@ -6,3 +6,5 @@ streamlit-option-menu
 streamlit-extras
 mkdocs-material
 streamlit-authenticator
+extra-streamlit-components
+streamlit-pretty-notification-box
