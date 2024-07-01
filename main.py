@@ -69,6 +69,7 @@ def main():
     st.markdown(hide_footer_style, unsafe_allow_html=True)
 
     #st.page_link("home.py", label="Home", icon="🏠")
+    st.logo("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png")
 
     pages = {
         "🏠 Home" :[
