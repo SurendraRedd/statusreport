@@ -78,6 +78,7 @@ def main():
 
         "🥇Components" : [
             st.Page("components/cups.py", icon= ':material/print:', title="CUPS"),
+            st.Page("components/cups-v-1-3-0.py", icon= ':material/print:', title="CUPS-V1.3.0"),
             st.Page("components/logging_collection.py", icon= ':material/description:', title="Logging Collection"),
             st.Page("components/metrics_collection.py", icon= ':material/monitoring:',title="Metrics Collection"),
         ],
