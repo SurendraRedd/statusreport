@@ -44,29 +44,7 @@ def main():
     """Main function to run the application."""
     
     if not check_password():
-        st.stop()
-
-    # Header template
-    st.markdown("""
-        <style>
-        body {background-color: #f4f4f4;}
-        .reportview-container .main header {background-color: #007BFF; padding: 10px;}
-        h3 {color: white; text-align: center;}
-        </style>
-        <div style="background-color:#007BFF;padding:10px">
-        <h3>🏠 Home Page</h3>
-        </div>
-    """, unsafe_allow_html=True)
-
-    # Hide Streamlit footer
-    st.markdown("""
-    <style>
-    .reportview-container .main footer {visibility: hidden;}    
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Logo
-    st.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)
+        st.stop()    
 
     # Navigation pages
     pages = {
