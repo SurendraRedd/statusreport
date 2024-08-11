@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_feedback import streamlit_feedback
 
 # Header template
 # st.markdown("""
@@ -47,3 +48,8 @@ with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
+feedback = streamlit_feedback(
+    feedback_type="thumbs",
+    optional_text_label="[Optional] Please provide an explanation",
+)
+feedback
