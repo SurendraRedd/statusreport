@@ -94,8 +94,7 @@ def main():
 
     # Navigation logic
     pg = st.navigation(pages)
-
-    st.write(pg.name)
+    
     pg.run()
 
 if __name__ == "__main__":    
