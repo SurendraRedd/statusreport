@@ -47,10 +47,9 @@ def main():
         st.stop()       
 
     # Sidebar content
-    st.sidebar.title("🔧 App Configuration")
-    st.sidebar.markdown("**Version:** `1.2.1`")
-    st.sidebar.markdown("**Developed by:** Nautilus DevOps Team")
-    st.sidebar.markdown("📅 **Release Date:** August 11, 2024")
+    st.sidebar.title("📈 Execution Tool ")
+    st.sidebar.markdown("**Version:** `1.0.0`")
+    st.sidebar.markdown("**Developed by:** Servat Team")    
 
     # Navigation pages
     pages = {
