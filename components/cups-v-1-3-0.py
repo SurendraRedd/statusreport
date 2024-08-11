@@ -5,7 +5,7 @@ import json
 import os
 
 # File path for persistent storage
-DATA_FILE = "v1.3.0.json"
+DATA_FILE = "cups-v1.3.0.json"
 
 # Function to load data from the file
 def load_data():
@@ -234,5 +234,6 @@ save_data(data)
 # Display user_data.json content
 with st.expander("View JSON Data"):
     with open(DATA_FILE, "r") as file:
+        st.write(DATA_FILE)
         json_data = json.load(file)
         st.json(json_data)

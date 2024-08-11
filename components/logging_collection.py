@@ -5,7 +5,7 @@ import json
 import os
 
 # File path for persistent storage
-DATA_FILE = "v1.2.0.json"
+DATA_FILE = "lc-v1.2.0.json"
 
 # Function to load data from the file
 def load_data():
@@ -235,4 +235,5 @@ save_data(data)
 with st.expander("View JSON Data"):
     with open(DATA_FILE, "r") as file:
         json_data = json.load(file)
+        st.write(DATA_FILE)
         st.json(json_data)
