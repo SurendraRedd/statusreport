@@ -50,6 +50,7 @@ def main():
     pages = {
         "🏠 Home" :[
             st.Page("home.py", icon="🏠", title="Home")
+            st.write("---")
         ],
         "🥇 Components" : [
             st.Page("components/cups-v-1-2-1.py", icon="🖨️", title="CUPS-V1.2.1"),
