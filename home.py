@@ -1,16 +1,16 @@
 import streamlit as st
 
 # Header template
-st.markdown("""
-    <style>
-    body {background-color: #f4f4f4;}
-    .reportview-container .main header {background-color: #007BFF; padding: 10px;}
-    h3 {color: white; text-align: center;}
-    </style>
-    <div style="background-color:#007BFF;padding:10px">
-    <h3>🏠 Home Page</h3>
-    </div>
-""", unsafe_allow_html=True)
+# st.markdown("""
+#     <style>
+#     body {background-color: #f4f4f4;}
+#     .reportview-container .main header {background-color: #007BFF; padding: 10px;}
+#     h3 {color: white; text-align: center;}
+#     </style>
+#     <div style="background-color:#007BFF;padding:10px">
+#     <h3>🏠 Home Page</h3>
+#     </div>
+# """, unsafe_allow_html=True)
 
 # Hide Streamlit footer
 st.markdown("""
