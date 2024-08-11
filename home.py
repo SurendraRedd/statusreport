@@ -21,10 +21,9 @@ The formal execution will begin once the following prerequisites are completed.
 4. **Signature of Installation Specification** 📜
 5. **A Test Iteration SCR with all required task and subtasks are created** ✅
 
-The signature process is documented in the following images:
-- ![Signature Details](images/Signature_Details.png)
-- ![Additional Signature Details](images/Signature_Details-1.png)
+Refer the signature process is documented below,
 
 """
 
 st.markdown(content)
+st.image("images/Signature_Details.png")
