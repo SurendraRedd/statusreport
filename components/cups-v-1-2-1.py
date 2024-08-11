@@ -1,24 +1,54 @@
 import streamlit as st
 from streamlit_extras.stodo import to_do
 import datetime
+import json
+import os
 
-# Initialize session state for the to-do items and switches
-if 'todo_states' not in st.session_state:
-    st.session_state.todo_states = {
-        "1": False, "2": False, "3": False, "4": False,
-        "5": False, "6": False, "7": False, "8": False,
-        "9": False, "10": False, "11": False, "12": False,
-        "13": False, "14": False, "15": False, "16": False,
-        "17": False, "18": False, "19": False, "20": False,
-        "21": False, "22": False, "23": False, "24": False,
-        "25": False, "26": False, "27": False, "28": False
+# File path for persistent storage
+DATA_FILE = "user_data.json"
+
+# Function to load data from the file
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as file:
+            return json.load(file)
+    return {
+        'todo_states': {
+            "1": False, "2": False, "3": False, "4": False,
+            "5": False, "6": False, "7": False, "8": False,
+            "9": False, "10": False, "11": False, "12": False,
+            "13": False, "14": False, "15": False, "16": False,
+            "17": False, "18": False, "19": False, "20": False,
+            "21": False, "22": False, "23": False, "24": False,
+            "25": False, "26": False, "27": False, "28": False
+        },
+        'home_switches': {
+            "homeswitch1": False, "homeswitch2": False, "homeswitch3": False,
+            "homeswitch4": False, "homeswitch5": False, "homeswitch6": False
+        },
+        'notes': "",
+        'observations': ""
     }
+
+# Function to save data to the file
+def save_data(data):
+    with open(DATA_FILE, "w") as file:
+        json.dump(data, file)
+
+# Initialize session state
+data = load_data()
+
+if 'todo_states' not in st.session_state:
+    st.session_state.todo_states = data['todo_states']
 
 if 'home_switches' not in st.session_state:
-    st.session_state.home_switches = {
-        "homeswitch1": False, "homeswitch2": False, "homeswitch3": False,
-        "homeswitch4": False, "homeswitch5": False, "homeswitch6": False
-    }
+    st.session_state.home_switches = data['home_switches']
+
+if 'notes' not in st.session_state:
+    st.session_state.notes = data['notes']
+
+if 'observations' not in st.session_state:
+    st.session_state.observations = data['observations']
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
@@ -123,7 +153,8 @@ with tab1:
             else:
                 st.metric(label=":checkered_flag: Completed", value="No", delta="")
 
-    txt = st.text_area(":memo: Notes", "")
+    txt = st.text_area(":memo: Notes", value=st.session_state.notes)
+    st.session_state.notes = txt
 
     if home_switch_value1 and home_switch_value2 and home_switch_value3:
         st.success('Overall Status: :trophy: Completed', icon="✅")
@@ -180,7 +211,8 @@ with tab2:
             else:
                 st.metric(label=":checkered_flag: Completed", value="No", delta="")
 
-    txt1 = st.text_area(":memo: Observations", "")
+    txt1 = st.text_area(":memo: Observations", value=st.session_state.observations)
+    st.session_state.observations = txt1
 
     if home_switch_value4 and home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
@@ -189,3 +221,12 @@ with tab2:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
         st.info('Overall Status: :hourglass_flowing_sand: In Progress', icon="ℹ️")
+
+# Save data on each interaction
+data = {
+    'todo_states': st.session_state.todo_states,
+    'home_switches': st.session_state.home_switches,
+    'notes': st.session_state.notes,
+    'observations': st.session_state.observations
+}
+save_data(data)
