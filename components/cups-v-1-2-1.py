@@ -86,7 +86,7 @@ with col1:
         to_do([(st.write, "Installation Plan & Report Signature Completed?")], "6")
         to_do([(st.write, "Installation SEQ Signature Completed?")], "7")
         to_do([(st.write, "Servat Execution Completed?")], "8")
-        home_switch_value1 = st.checkbox("Installation (Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
+        home_switch_value1 = st.checkbox("Installation Stage Completed(Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
         st.session_state.home_switches["homeswitch1"] = home_switch_value1
         if home_switch_value1:
             st.metric(label=":point_down: Completed", value="Yes", delta="")
@@ -100,7 +100,7 @@ with col2:
         to_do([(st.write, "Installation Plan & Report Signature Completed?")], "10")
         to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "11")
         to_do([(st.write, "Servat Execution Completed?")], "12")
-        home_switch_value2 = st.checkbox("Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
+        home_switch_value2 = st.checkbox("Installation with PVC Stage Completed(Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
         st.session_state.home_switches["homeswitch2"] = home_switch_value2
         if home_switch_value2:
             st.metric(label=":point_down: Completed", value="Yes", delta="")
@@ -114,7 +114,7 @@ with col3:
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "14")
         to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "15")
         to_do([(st.write, "Servat Execution Completed?")], "16")
-        home_switch_value3 = st.checkbox("Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
+        home_switch_value3 = st.checkbox("Uninstallation Stage Completed(Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
         st.session_state.home_switches["homeswitch3"] = home_switch_value3
         if home_switch_value3:
             st.metric(label=":point_down: Completed", value="Yes", delta="")
