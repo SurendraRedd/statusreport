@@ -230,3 +230,9 @@ data = {
     'observations': st.session_state.observations
 }
 save_data(data)
+
+# Display user_data.json content
+with st.expander("View JSON Data"):
+    with open(DATA_FILE, "r") as file:
+        json_data = json.load(file)
+        st.json(json_data)
