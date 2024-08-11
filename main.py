@@ -42,12 +42,15 @@ def check_password():
 
 def main():
     """Main function to run the application."""
-
-    # Logo
-    st.sidebar.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)
-    
+        
     if not check_password():
         st.stop()       
+
+    # Sidebar content
+    st.sidebar.title("🔧 App Configuration")
+    st.sidebar.markdown("**Version:** `1.2.1`")
+    st.sidebar.markdown("**Developed by:** Nautilus DevOps Team")
+    st.sidebar.markdown("📅 **Release Date:** August 11, 2024")
 
     # Navigation pages
     pages = {
