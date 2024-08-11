@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_extras.stodo import to_do
 import datetime
 
+
 # Initialize session state for the to-do items and switches
 if 'todo_states' not in st.session_state:
     st.session_state.todo_states = {
@@ -22,16 +23,13 @@ if 'home_switches' not in st.session_state:
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
-    checked = st.session_state.todo_states[key]
-    for func, text in items:
+    for item in items:
+        func, text = item
+        checked = st.session_state.todo_states[key]
         if st.checkbox(text, value=checked, key=f"todo_{key}"):
             st.session_state.todo_states[key] = True
         else:
             st.session_state.todo_states[key] = False
-
-    # Apply strikethrough if completed
-    display_text = f"~~{text}~~" if checked else text
-    st.markdown(display_text)
 
 # Create navigation
 hide_st_style = """
@@ -80,112 +78,112 @@ with tab1:
     # Create three columns
     col1, col2, col3 = st.columns(3)
 
-    # Status in each column
-    with col1:
-        st.subheader("Installation")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Initial SEQ Signature Completed?")], "5")
-            to_do([(st.write, "Installation Plan & Report Signature Completed?")], "6")
-            to_do([(st.write, "Installation SEQ Signature Completed?")], "7")
-            to_do([(st.write, "Servat Execution Completed?")], "8")
-            home_switch_value1 = st.checkbox("Installation (Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
-            st.session_state.home_switches["homeswitch1"] = home_switch_value1
-            if home_switch_value1:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+# Status in each column
+with col1:
+    st.subheader("Installation")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Initial SEQ Signature Completed?")], "5")
+        to_do([(st.write, "Installation Plan & Report Signature Completed?")], "6")
+        to_do([(st.write, "Installation SEQ Signature Completed?")], "7")
+        to_do([(st.write, "Servat Execution Completed?")], "8")
+        home_switch_value1 = st.checkbox("Installation (Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
+        st.session_state.home_switches["homeswitch1"] = home_switch_value1
+        if home_switch_value1:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    with col2:
-        st.subheader("Installation with PVC")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Installation SEQ Signature Completed?")], "9")
-            to_do([(st.write, "Installation Plan & Report Signature Completed?")], "10")
-            to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "11")
-            to_do([(st.write, "Servat Execution Completed?")], "12")
-            home_switch_value2 = st.checkbox("Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
-            st.session_state.home_switches["homeswitch2"] = home_switch_value2
-            if home_switch_value2:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+with col2:
+    st.subheader("Installation with PVC")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Installation SEQ Signature Completed?")], "9")
+        to_do([(st.write, "Installation Plan & Report Signature Completed?")], "10")
+        to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "11")
+        to_do([(st.write, "Servat Execution Completed?")], "12")
+        home_switch_value2 = st.checkbox("Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
+        st.session_state.home_switches["homeswitch2"] = home_switch_value2
+        if home_switch_value2:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    with col3:
-        st.subheader("Uninstallation")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "13")
-            to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "14")
-            to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "15")
-            to_do([(st.write, "Servat Execution Completed?")], "16")
-            home_switch_value3 = st.checkbox("Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
-            st.session_state.home_switches["homeswitch3"] = home_switch_value3
-            if home_switch_value3:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+with col3:
+    st.subheader("Uninstallation")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "13")
+        to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "14")
+        to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "15")
+        to_do([(st.write, "Servat Execution Completed?")], "16")
+        home_switch_value3 = st.checkbox("Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
+        st.session_state.home_switches["homeswitch3"] = home_switch_value3
+        if home_switch_value3:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    txt = st.text_area("Notes", "")
+txt = st.text_area("Notes", "")
 
-    if home_switch_value1 and home_switch_value2 and home_switch_value3:
-        st.success('Overall Status: :point_right: Completed', icon="✅")
-        st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 5, 23))
-    elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3:
-        st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
-    else:
-        st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
+if home_switch_value1 and home_switch_value2 and home_switch_value3:
+    st.success('Overall Status: :point_right: Completed', icon="✅")
+    st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 5, 23))
+elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3:
+    st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
+else:
+    st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
 with tab2:
     # Create three columns
     col1, col2, col3 = st.columns(3)
 
-    # Status in each column
-    with col1:
-        st.subheader("Installation")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Initial SEQ Signature Completed?")], "17")
-            to_do([(st.write, "Installation Plan & Report Signature Completed?")], "18")
-            to_do([(st.write, "Installation SEQ Signature Completed?")], "19")
-            to_do([(st.write, "Servat Execution Completed?")], "20")
-            home_switch_value4 = st.checkbox("Installation (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
-            st.session_state.home_switches["homeswitch4"] = home_switch_value4
-            if home_switch_value4:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+# Status in each column
+with col1:
+    st.subheader("Installation")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Initial SEQ Signature Completed?")], "17")
+        to_do([(st.write, "Installation Plan & Report Signature Completed?")], "18")
+        to_do([(st.write, "Installation SEQ Signature Completed?")], "19")
+        to_do([(st.write, "Servat Execution Completed?")], "20")
+        home_switch_value4 = st.checkbox("Installation (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
+        st.session_state.home_switches["homeswitch4"] = home_switch_value4
+        if home_switch_value4:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    with col2:
-        st.subheader("Installation with PVC")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Installation SEQ Signature Completed?")], "21")
-            to_do([(st.write, "Installation Plan & Report Signature Completed?")], "22")
-            to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "23")
-            to_do([(st.write, "Servat Execution Completed?")], "24")
-            home_switch_value5 = st.checkbox("Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
-            st.session_state.home_switches["homeswitch5"] = home_switch_value5
-            if home_switch_value5:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+with col2:
+    st.subheader("Installation with PVC")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Installation SEQ Signature Completed?")], "21")
+        to_do([(st.write, "Installation Plan & Report Signature Completed?")], "22")
+        to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "23")
+        to_do([(st.write, "Servat Execution Completed?")], "24")
+        home_switch_value5 = st.checkbox("Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
+        st.session_state.home_switches["homeswitch5"] = home_switch_value5
+        if home_switch_value5:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    with col3:
-        st.subheader("Uninstallation")
-        with st.expander("Details", expanded=True):
-            to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "25")
-            to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "26")
-            to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "27")
-            to_do([(st.write, "Servat Execution Completed?")], "28")
-            home_switch_value6 = st.checkbox("Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
-            st.session_state.home_switches["homeswitch6"] = home_switch_value6
-            if home_switch_value6:
-                st.metric(label=":point_down: Completed", value="Yes", delta="")
-            else:
-                st.metric(label=":point_down: Completed", value="No", delta="")
+with col3:
+    st.subheader("Uninstallation")
+    with st.expander("Details", expanded=True):
+        to_do([(st.write, "Installation with PVC SEQ Signature Completed?")], "25")
+        to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "26")
+        to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "27")
+        to_do([(st.write, "Servat Execution Completed?")], "28")
+        home_switch_value6 = st.checkbox("Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
+        st.session_state.home_switches["homeswitch6"] = home_switch_value6
+        if home_switch_value6:
+            st.metric(label=":point_down: Completed", value="Yes", delta="")
+        else:
+            st.metric(label=":point_down: Completed", value="No", delta="")
 
-    txt1 = st.text_area("Observations", "")
+txt1 = st.text_area("Observations", "")
 
-    if home_switch_value4 and home_switch_value5 and home_switch_value6:
-        st.success('Overall Status: :point_right: Completed', icon="✅")
-        st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 5, 23))
-    elif not home_switch_value4 and not home_switch_value5 and not home_switch_value6:
-        st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
-    else:
-        st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
+if home_switch_value4 and home_switch_value5 and home_switch_value6:
+    st.success('Overall Status: :point_right: Completed', icon="✅")
+    st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 5, 23))
+elif not home_switch_value4 and not home_switch_value5 and not home_switch_value6:
+    st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
+else:
+    st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
