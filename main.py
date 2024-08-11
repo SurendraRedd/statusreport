@@ -36,7 +36,7 @@ def check_password():
     if st.session_state.get("password_correct", False):
         return True
 
-    st.title("Servat Execution Status")
+    st.title("Servat Execution Status Tool")
     st.write("\n")
     # Show inputs for username + password.
     login_form()
