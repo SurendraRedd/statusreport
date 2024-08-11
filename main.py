@@ -89,6 +89,9 @@ def main():
         "🥉 Provisioner" : [
             st.Page("provisioners/azure_provisioner.py", title="Azure provisioner"),
             st.Page("provisioners/openstack_provisioner.py", title="Openstack provisioner"),
+        ],
+        "🤖 Support" : [
+            st.Page("servatbot/bot.py", title="Bot"),
         ]
     }
 

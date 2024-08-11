@@ -21,7 +21,7 @@ The formal execution will begin once the following prerequisites are completed.
 4. **Signature of Installation Specification** 📜
 5. **A Test Iteration SCR with all required task and subtasks are created** ✅
 
-Refer the signature process is documented below,
+Refer the signature process which is documented below,
 
 """
 
