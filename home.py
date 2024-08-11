@@ -1,6 +1,4 @@
 import streamlit as st
-import streamlit_scrollable_textbox as stx
-
 
 content = """
 # Servat Execution Details 📋
@@ -30,4 +28,3 @@ with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
-stx.scrollableTextbox('My very long text.')
