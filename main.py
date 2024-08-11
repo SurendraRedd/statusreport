@@ -52,7 +52,7 @@ def main():
             st.Page("home.py", icon="🏠", title="Home")
         ],
         "🥇 Components" : [
-            st.Page("components/cups.py", icon="🖨️", title="CUPS"),
+            st.Page("components/cups-v-1-2-1.py", icon="🖨️", title="CUPS-V1.2.1"),
             st.Page("components/cups-v-1-3-0.py", icon="🖨️", title="CUPS-V1.3.0"),
             st.Page("components/logging_collection.py", icon="📝", title="Logging Collection"),
             st.Page("components/metrics_collection.py", icon="📊", title="Metrics Collection"),
