@@ -11,7 +11,16 @@ This page provides detailed information on the servat executions of the followin
 - **Provisioners** 🔧
 - **SaaS** ☁️
 
-Stay tuned for more updates! 🚀
+## Prerequisites ✔️
+
+The formal execution will begin once the following prerequisites are completed:
+
+1. **Signatures of OSM** ✍️
+2. **System Requirements** 📊
+3. **Installation Guide** 📚
+4. **Installation Specification** 📜
+5. **A Test Iteration SCR** ✅
+
 """
 
 st.markdown(content)
