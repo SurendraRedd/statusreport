@@ -22,8 +22,8 @@ The formal execution will begin once the following prerequisites are completed.
 5. **A Test Iteration SCR with all required task and subtasks are created** ✅
 
 The signature process is documented in the following images:
-    - ![Signature Details](images/Signature_Details.png)
-    - ![Additional Signature Details](images/Signature_Details-1.png)
+- ![Signature Details](images/Signature_Details.png)
+- ![Additional Signature Details](images/Signature_Details-1.png)
 
 """
 
