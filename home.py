@@ -7,7 +7,15 @@ st.markdown("---")
 st.write("\n")
 
 content = """
-Page provides the details of the servat executions during the formal release of the components, provisioners and saas
+# Servat Execution Details 📋
+
+This page provides detailed information on the servat executions during the formal release of the following components:
+
+- **Components** 🧩
+- **Provisioners** 🔧
+- **SaaS** ☁️
+
+Stay tuned for more updates! 🚀
 """
 
 st.markdown(content)
