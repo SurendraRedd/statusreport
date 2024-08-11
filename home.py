@@ -26,4 +26,6 @@ Refer the signature process is documented below,
 """
 
 st.markdown(content)
-st.image("images/Signature_Details.png")
+with st.expander("Details"):
+    st.image("images/Signature_Details.png")
+    st.image("images/Signature_Details-1.png")
