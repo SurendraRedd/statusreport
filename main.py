@@ -46,55 +46,47 @@ def main():
     if not check_password():
         st.stop()
 
-    # Header template
-    st.markdown("""
-        <style>
-        body {background-color: #f4f4f4;}
-        .reportview-container .main header {background-color: #007BFF; padding: 10px;}
-        h3 {color: white; text-align: center;}
-        </style>
-        <div style="background-color:#007BFF;padding:10px">
-        <h3>🏠 Home Page</h3>
-        </div>
-    """, unsafe_allow_html=True)
-
-    # Hide Streamlit footer
-    st.markdown("""
-    <style>
-    .reportview-container .main footer {visibility: hidden;}    
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Logo
-    st.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)
-
     # Navigation pages
     pages = {
-        "🏠 Home" :[
-            st.Page("home.py", icon="🏠", title="Home")
-        ],
-        "🥇 Components" : [
+        "🏠 Home": st.Page("home.py", icon="🏠", title="Home"),
+        "🥇 Components": [
             st.Page("components/cups.py", icon="🖨️", title="CUPS"),
             st.Page("components/cups-v-1-3-0.py", icon="🖨️", title="CUPS-V1.3.0"),
             st.Page("components/logging_collection.py", icon="📝", title="Logging Collection"),
             st.Page("components/metrics_collection.py", icon="📊", title="Metrics Collection"),
         ],
-        "🥈 SaaS" : [
+        "🥈 SaaS": [
             st.Page("saas/azure_saas.py", icon="☁️", title="Azure SaaS"),
             st.Page("saas/aws_saas.py", icon="☁️", title="AWS SaaS")
         ],
-        "🥉 Provisioner" : [
+        "🥉 Provisioner": [
             st.Page("provisioners/azure_provisioner.py", icon="🔧", title="Azure Provisioner"),
             st.Page("provisioners/openstack_provisioner.py", icon="🔧", title="OpenStack Provisioner"),
         ],
-        "🤖 Support" : [
-            st.Page("servatbot/bot.py", icon="🤖", title="Bot"),
-        ]
+        "🤖 Support": st.Page("servatbot/bot.py", icon="🤖", title="Bot"),
     }
 
     # Navigation logic
     pg = st.navigation(pages)
+
+    # Display the home page header and logo only if "Home" is selected
+    if pg.name == "Home":
+        # Header template
+        st.markdown("""
+            <style>
+            body {background-color: #f4f4f4;}
+            .reportview-container .main header {background-color: #007BFF; padding: 10px;}
+            h3 {color: white; text-align: center;}
+            </style>
+            <div style="background-color:#007BFF;padding:10px">
+            <h3>🏠 Home Page</h3>
+            </div>
+        """, unsafe_allow_html=True)
+
+        # Logo
+        st.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)
+
     pg.run()
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     main()
