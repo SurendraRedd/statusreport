@@ -1,4 +1,7 @@
 import streamlit as st
+import hydralit_components as hc
+
+theme_good = {'bgcolor': '#EFF8F7','title_color': 'green','content_color': 'green','icon_color': 'green', 'icon': 'fa fa-check-circle'}
 
 content = """
 # Servat Execution Details 📋
@@ -28,3 +31,4 @@ with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
+hc.info_card(title='Some heading GOOD', content='All good!', sentiment='good',bar_value=77)
