@@ -114,6 +114,7 @@ with col3:
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")], "14")
         to_do([(st.write, "Uninstallation SEQ Signature Completed?")], "15")
         to_do([(st.write, "Servat Execution Completed?")], "16")
+        st.write("---")
         home_switch_value3 = st.checkbox("Uninstallation Stage Completed(Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
         st.session_state.home_switches["homeswitch3"] = home_switch_value3
         if home_switch_value3:
