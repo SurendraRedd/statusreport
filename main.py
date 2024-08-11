@@ -49,8 +49,7 @@ def main():
     # Navigation pages
     pages = {
         "🏠 Home" :[
-            st.Page("home.py", icon="🏠", title="Home"),
-            st.write("---")
+            st.Page("home.py", icon="🏠", title="Home")
         ],
         "🥇 Components" : [
             st.Page("components/cups-v-1-2-1.py", icon="🖨️", title="CUPS-V1.2.1"),
