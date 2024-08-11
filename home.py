@@ -19,9 +19,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Logo
-st.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)
-
 content = """
 # Servat Execution Details 📋
 

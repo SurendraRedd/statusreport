@@ -44,7 +44,10 @@ def main():
     """Main function to run the application."""
     
     if not check_password():
-        st.stop()    
+        st.stop()
+
+    # Logo
+    st.sidebar.image("https://kissflow.com/hs-fs/hubfs/workflow-design-tools.png?width=801&height=451&name=workflow-design-tools.png", width=200)   
 
     # Navigation pages
     pages = {
