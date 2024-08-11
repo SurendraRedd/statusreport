@@ -49,7 +49,7 @@ def main():
     # Navigation pages
     pages = {
         "🏠 Home" :[
-            st.Page("home.py", icon="🏠", title="Home")
+            st.Page("home.py", icon="🏠", title="Home"),
             st.write("---")
         ],
         "🥇 Components" : [
