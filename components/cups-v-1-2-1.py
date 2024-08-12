@@ -4,8 +4,11 @@ import datetime
 import json
 import os
 
+# Define tool version (you can set this dynamically based on user input or some other logic)
+TOOL_VERSION = "v1.2.1"
+
 # File path for persistent storage
-DATA_FILE = "cups-v1.2.1.json"
+DATA_FILE = f"cups-{TOOL_VERSION}.json"
 
 # Function to load data from the file
 def load_data():
@@ -14,17 +17,17 @@ def load_data():
             return json.load(file)
     return {
         'todo_states': {
-            "1": False, "2": False, "3": False, "4": False,
-            "5": False, "6": False, "7": False, "8": False,
-            "9": False, "10": False, "11": False, "12": False,
-            "13": False, "14": False, "15": False, "16": False,
-            "17": False, "18": False, "19": False, "20": False,
-            "21": False, "22": False, "23": False, "24": False,
-            "25": False, "26": False, "27": False, "28": False
+            f"{TOOL_VERSION}-1": False, f"{TOOL_VERSION}-2": False, f"{TOOL_VERSION}-3": False, f"{TOOL_VERSION}-4": False,
+            f"{TOOL_VERSION}-5": False, f"{TOOL_VERSION}-6": False, f"{TOOL_VERSION}-7": False, f"{TOOL_VERSION}-8": False,
+            f"{TOOL_VERSION}-9": False, f"{TOOL_VERSION}-10": False, f"{TOOL_VERSION}-11": False, f"{TOOL_VERSION}-12": False,
+            f"{TOOL_VERSION}-13": False, f"{TOOL_VERSION}-14": False, f"{TOOL_VERSION}-15": False, f"{TOOL_VERSION}-16": False,
+            f"{TOOL_VERSION}-17": False, f"{TOOL_VERSION}-18": False, f"{TOOL_VERSION}-19": False, f"{TOOL_VERSION}-20": False,
+            f"{TOOL_VERSION}-21": False, f"{TOOL_VERSION}-22": False, f"{TOOL_VERSION}-23": False, f"{TOOL_VERSION}-24": False,
+            f"{TOOL_VERSION}-25": False, f"{TOOL_VERSION}-26": False, f"{TOOL_VERSION}-27": False, f"{TOOL_VERSION}-28": False
         },
         'home_switches': {
-            "homeswitch1": False, "homeswitch2": False, "homeswitch3": False,
-            "homeswitch4": False, "homeswitch5": False, "homeswitch6": False
+            f"{TOOL_VERSION}-homeswitch1": False, f"{TOOL_VERSION}-homeswitch2": False, f"{TOOL_VERSION}-homeswitch3": False,
+            f"{TOOL_VERSION}-homeswitch4": False, f"{TOOL_VERSION}-homeswitch5": False, f"{TOOL_VERSION}-homeswitch6": False
         },
         'notes': "",
         'observations': ""
