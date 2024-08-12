@@ -39,7 +39,7 @@ with st.expander("Details", expanded=True):
     to_do([(st.write, "Installation Specification Signature Completed ?")],"4",)
 
 st.subheader("Workflows")
-st.date_input(":point_right: Execution Start Date", datetime.date(2024, 7, 1))
+start_date5 = st.date_input(":point_right: Execution Start Date", datetime.date(2024, 7, 1))
 st.write("\n")
 
 st.subheader("AKS Execution Details")
@@ -89,11 +89,10 @@ txt = st.text_area("Notes", "")
 
 if home_switch_value1 and home_switch_value2 and home_switch_value3:
     st.success('Overall Status: :point_right: Completed', icon="✅")
-    st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 23, 5))
+    end_date5 = st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 23, 5))
 elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3:
     st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
 else:
     st.info('Overall Status: :point_right: In Progress', icon="ℹ️")
 
-st.date_input(":point_right: Execution Completion Date", datetime.date(2024, 7, 1))
 st.write("\n")
