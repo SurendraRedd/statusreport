@@ -57,4 +57,4 @@ feedback = streamlit_feedback(
 
 with st.expander("Feedback"):
     st.markdown("**Any suggestions or improvements of the tool?**")
-    st.write(feedback)
+    feedback
