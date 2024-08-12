@@ -31,11 +31,6 @@ The formal execution will begin once the following prerequisites are completed.
 Refer to the signature process, which is documented below:
 """
 
-st.markdown(content)
-with st.expander("Details"):
-    st.image("images/Signature_Details.png")
-    st.image("images/Signature_Details-1.png")
-
 # Styling for dark mode compatibility and card colors
 card_style = """
 <style>
@@ -61,80 +56,70 @@ st.markdown(card_style, unsafe_allow_html=True)
 
 # Expander for Released (Expanded by default)
 with st.expander("✅ Released", expanded=True):
-    cols = st.columns(3)
+    cols = st.columns(5)
     with cols[0]:
         st.markdown("""
         <div class="card released">
-        <h4>Component 1</h4>
-        <p>Completed successfully</p>
+        <h4>CUPS</h4>
+        <p>V1.2.1</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
         <div class="card released">
-        <h4>Component 2</h4>
-        <p>Completed successfully</p>
+        <h4>CUPS</h4>
+        <p>V1.3.0</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
         <div class="card released">
-        <h4>Component 3</h4>
-        <p>Completed successfully</p>
+        <h4>Logging Collection</h4>
+        <p>V1.1.2</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with cols[3]:
+        st.markdown("""
+        <div class="card released">
+        <h4>Metrics Collection</h4>
+        <p>V1.1.0</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with cols[4]:
+        st.markdown("""
+        <div class="card released">
+        <h4>Metrics Collection</h4>
+        <p>V1.1.1</p>
         </div>
         """, unsafe_allow_html=True)
 
 # Expander for In-Progress (Expanded by default)
 with st.expander("🚧 In-Progress", expanded=True):
-    cols = st.columns(3)
+    cols = st.columns(1)
     with cols[0]:
         st.markdown("""
         <div class="card inprogress">
-        <h4>Component 4</h4>
-        <p>Currently being worked on</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with cols[1]:
-        st.markdown("""
-        <div class="card inprogress">
-        <h4>Component 5</h4>
-        <p>Currently being worked on</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with cols[2]:
-        st.markdown("""
-        <div class="card inprogress">
-        <h4>Component 6</h4>
-        <p>Currently being worked on</p>
+        <h4>Logging Collection</h4>
+        <p>V1.2.0</p>
         </div>
         """, unsafe_allow_html=True)
 
 # Expander for Upcoming (Expanded by default)
 with st.expander("🔜 Upcoming", expanded=True):
-    cols = st.columns(3)
+    cols = st.columns(1)
     with cols[0]:
         st.markdown("""
         <div class="card upcoming">
-        <h4>Component 7</h4>
-        <p>Planned for future release</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with cols[1]:
-        st.markdown("""
-        <div class="card upcoming">
-        <h4>Component 8</h4>
-        <p>Planned for future release</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with cols[2]:
-        st.markdown("""
-        <div class="card upcoming">
-        <h4>Component 9</h4>
-        <p>Planned for future release</p>
+        <h4>Open Stack Provisioner</h4>
+        <p>V1.0.0</p>
         </div>
         """, unsafe_allow_html=True)
 
-st.write("---")
+st.markdown(content)
+with st.expander("Details"):
+    st.image("images/Signature_Details.png")
+    st.image("images/Signature_Details-1.png")
 
 # Feedback section
 with st.expander("Feedback"):
