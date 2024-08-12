@@ -10,8 +10,6 @@ st.markdown("""
 
 # Main content
 content = """
-# Servat Execution Details 📋
-
 Servat Formal executions of the following,
 
 - **Components** 🧩
@@ -51,7 +49,7 @@ card_style = """
     .upcoming .card { background-color: rgba(0, 162, 232, 0.2); } /* Blue for Upcoming */
 </style>
 """
-
+st.markdown("# Servat Execution Details 📋")
 st.markdown(card_style, unsafe_allow_html=True)
 
 # Expander for Released (Expanded by default)
