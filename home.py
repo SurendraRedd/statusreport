@@ -8,7 +8,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Content header
+# Content section
 content = """
 # Servat Execution Details 📋
 
@@ -26,34 +26,34 @@ The formal execution will begin once the following prerequisites are completed.
 2. **Signature of System Requirements** 📊
 3. **Signature of Installation Guide** 📚
 4. **Signature of Installation Specification** 📜
-5. **A Test Iteration SCR with all required tasks and subtasks are created** ✅
+5. **A Test Iteration SCR with all required task and subtasks are created** ✅
 
-Refer to the signature process which is documented below:
+Refer the signature process which is documented below,
 """
 
 st.markdown(content)
+
+# Expander for details
 with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
 # Feedback section
+st.markdown("---")
+st.subheader("User Feedback")
+
+# Collect feedback
 feedback = streamlit_feedback(
     feedback_type="thumbs",
     optional_text_label="[Optional] Please provide an explanation",
 )
 
-# Feedback table with S.No, Feedback, Status, Comments
+# Display feedback in a table
 if feedback:
-    st.sidebar.write("Any suggestions or improvements for the tool?")
-    st.sidebar.write(feedback)
+    st.markdown("### Feedback Summary")
+    feedback_table = [
+        {"S.No": i + 1, "Feedback": item.get('label', 'N/A'), "Status": item.get('score', 'N/A'), "Comments": item.get('text', 'N/A')}
+        for i, item in enumerate(feedback)
+    ]
 
-    st.sidebar.markdown("### Feedback Summary")
-    with st.sidebar.expander("View Feedback Details", expanded=True):
-        st.write(f"| S.No | Feedback | Status | Comments |")
-        st.write(f"| ---- | -------- | ------ | -------- |")
-
-        for i, item in enumerate(feedback):
-            feedback_text = item.get('text', 'N/A')
-            feedback_status = "Positive" if item['rating'] == 1 else "Negative"
-            feedback_comments = item.get('comments', 'N/A')
-            st.write(f"| {i + 1} | {feedback_text} | {feedback_status} | {feedback_comments} |")
+    st.table(feedback_table)
