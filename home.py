@@ -54,4 +54,4 @@ with st.expander("Feedback"):
     optional_text_label="[Optional] Please provide an explanation",
 )
     st.markdown("**Any suggestions or improvements of the tool?**")
-    feedback[0].get("text", "")
+    feedback.get("text", "")
