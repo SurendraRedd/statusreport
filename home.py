@@ -35,26 +35,46 @@ with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
+# Styling for dark mode compatibility
+card_style = """
+<style>
+    .card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        color: #f0f0f0; /* Light gray text for visibility in dark mode */
+    }
+    .card h4 {
+        margin-bottom: 5px;
+    }
+    .card p {
+        margin: 0;
+    }
+</style>
+"""
+
+st.markdown(card_style, unsafe_allow_html=True)
+
 # Expander for Released
 with st.expander("Released"):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div style="background-color:#e7f3e7;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 1</h4>
         <p>Description of Component 1</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div style="background-color:#e7f3e7;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 2</h4>
         <p>Description of Component 2</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div style="background-color:#e7f3e7;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 3</h4>
         <p>Description of Component 3</p>
         </div>
@@ -65,21 +85,21 @@ with st.expander("In-Progress"):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div style="background-color:#fff3e6;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 4</h4>
         <p>Description of Component 4</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div style="background-color:#fff3e6;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 5</h4>
         <p>Description of Component 5</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div style="background-color:#fff3e6;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 6</h4>
         <p>Description of Component 6</p>
         </div>
@@ -90,21 +110,21 @@ with st.expander("Upcoming"):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div style="background-color:#e6e6ff;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 7</h4>
         <p>Description of Component 7</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div style="background-color:#e6e6ff;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 8</h4>
         <p>Description of Component 8</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div style="background-color:#e6e6ff;padding:10px;border-radius:5px;">
+        <div class="card">
         <h4>Component 9</h4>
         <p>Description of Component 9</p>
         </div>
