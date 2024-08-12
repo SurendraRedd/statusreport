@@ -101,7 +101,7 @@ with st.expander("Details", expanded=True):
     to_do([(st.write, ":memo: Installation Specification Signature Completed ?")], "4")
 
 st.subheader("Workflows")
-st.date_input(":calendar: Execution Start Date", datetime.date(2024, 5, 22))
+start_date_1 = st.date_input(":calendar: Execution Start Date", datetime.date(2024, 5, 22))
 st.write("\n")
 
 tab1, tab2 = st.tabs(["AKS Execution Details", "OCP Execution Details"])
@@ -161,7 +161,7 @@ with tab1:
 
     if home_switch_value1 and home_switch_value2 and home_switch_value3:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
+        end_date_1 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
     elif not home_switch_value1 and not home_switch_value2 and not home_switch_value3:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
