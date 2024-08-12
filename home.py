@@ -1,6 +1,18 @@
 import streamlit as st
 from streamlit_feedback import streamlit_feedback
 
+# Header template
+# st.markdown("""
+#     <style>
+#     body {background-color: #f4f4f4;}
+#     .reportview-container .main header {background-color: #007BFF; padding: 10px;}
+#     h3 {color: white; text-align: center;}
+#     </style>
+#     <div style="background-color:#007BFF;padding:10px">
+#     <h3>🏠 Home Page</h3>
+#     </div>
+# """, unsafe_allow_html=True)
+
 # Hide Streamlit footer
 st.markdown("""
 <style>
@@ -8,7 +20,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Content section
 content = """
 # Servat Execution Details 📋
 
@@ -29,31 +40,19 @@ The formal execution will begin once the following prerequisites are completed.
 5. **A Test Iteration SCR with all required task and subtasks are created** ✅
 
 Refer the signature process which is documented below,
+
 """
 
 st.markdown(content)
-
-# Expander for details
 with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
-# Feedback section
-st.markdown("---")
-st.subheader("User Feedback")
-
-# Collect feedback
 feedback = streamlit_feedback(
     feedback_type="thumbs",
     optional_text_label="[Optional] Please provide an explanation",
 )
-
-# Display feedback in a table
-if feedback:
-    st.markdown("### Feedback Summary")
-    feedback_table = [
-        {"S.No": i + 1, "Feedback": item.get('label', 'N/A'), "Status": item.get('score', 'N/A'), "Comments": item.get('text', 'N/A')}
-        for i, item in enumerate(feedback)
-    ]
-
-    st.table(feedback_table)
+st.write("---")
+with st.expander("Feedback"):
+    st.markdown("**Any suggestions or improvements of the tool?**")
+    st.write(feedback)
