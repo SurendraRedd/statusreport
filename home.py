@@ -53,7 +53,7 @@ st.markdown("# Servat Execution Details 📋")
 st.markdown(card_style, unsafe_allow_html=True)
 
 # Expander for Released (Expanded by default)
-with st.expander("✅ Released", expanded=True):
+with st.expander("✅ Released", expanded=False):
     cols = st.columns(5)
     with cols[0]:
         st.markdown("""
@@ -104,7 +104,7 @@ with st.expander("🚧 In-Progress", expanded=True):
         """, unsafe_allow_html=True)
 
 # Expander for Upcoming (Expanded by default)
-with st.expander("🔜 Upcoming", expanded=True):
+with st.expander("🔜 Upcoming", expanded=False):
     cols = st.columns(1)
     with cols[0]:
         st.markdown("""

@@ -14,21 +14,25 @@ questions_and_answers = {
         "You can inquire about specific components, prerequisites, and execution details! 📊✨"
     ),
     "What is the version of the tool?": "🔢 The current version of the tool is **1.0.0**. 📦🚀",
-    "What platform components will it support?": "🖥️ The tool supports various platform components such as servers, databases, and storage solutions. 🌐💻",
-    "What provisioners will it support?": "🔧 The tool supports several provisioners including Terraform, Ansible, and Puppet for efficient deployment and management. ⚙️🚀",
-    "What SaaS will it support?": "☁️ The tool is compatible with popular SaaS platforms like AWS, Azure, and Google Cloud. 🌟📈",
+    "What platform components will it support?": "🖥️ The tool provides execution details of various platform components such as CUPS, Logging Collection & Metrics Collection. 🌐💻",
+    "What provisioners will it support?": "🔧 The tool provides execution details of provisioners including Azure provisioner and Open Stack Provisioner. ⚙️🚀",
+    "What SaaS will it support?": "☁️ The tool provides execution details of Azure SaaS, AWS SaaS servat executions and workflows. 🌟📈",
     "Where can I refer to the execution status of each component, provisioner, or SaaS?": (
-        "📈 You can check the execution status on our dedicated dashboard at `http://example.com/dashboard`. "
+        "📈 You can check the execution status in the navigation of each version `https://status.streamlit.app/cups-v-1-2-1`. "
         "It provides real-time updates and detailed logs for each component, provisioner, and SaaS. 📊🔍"
     ),
     "What is the process of execution?": (
-        "🔄 The execution process consists of several stages: planning, deployment, monitoring, and review. "
+        "🔄 The execution process consists of several stages: prerequisites, signatures, test executions, and review. "
         "Each stage ensures that the tool's operations are performed effectively and correctly. 🛠️✅"
     ),
     "What is the signature process?": (
         "✍️ The signature process involves reviewing and signing off on key documents and agreements. "
         "For detailed information, refer to the images in the `images` folder: `Signature_Details.png` and `Signature_Details-1.png`. 📜🖊️"
-    )
+    ),
+    "How many are released?": "✅ **Refer to the Home Page** for the release details.",
+    "How many are in progress?": "🟡 **Refer to the Home Page** for the in-progress details.",
+    "How many are upcoming?": "🔜 **Refer to the Home Page** for the upcoming details.",
+    "Whom to contact?": "📧 For any inquiries, please contact the **Servat Team**."
 }
 
 # Display the list of questions
@@ -37,7 +41,7 @@ for question in questions_and_answers.keys():
     st.write(f"- {question}")
 
 # User input
-user_input = st.text_input("You:", "")
+user_input = st.text_input("User:", "")
 
 # Responses based on user input
 if user_input:
