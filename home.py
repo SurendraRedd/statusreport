@@ -50,11 +50,10 @@ with st.expander("Details"):
 
 st.write("---")
 
-feedback = streamlit_feedback(
+with st.expander("Feedback"):
+    feedback = streamlit_feedback(
     feedback_type="thumbs",
     optional_text_label="[Optional] Please provide an explanation",
 )
-
-with st.expander("Feedback"):
     st.markdown("**Any suggestions or improvements of the tool?**")
     feedback
