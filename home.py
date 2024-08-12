@@ -52,4 +52,5 @@ feedback = streamlit_feedback(
     feedback_type="thumbs",
     optional_text_label="[Optional] Please provide an explanation",
 )
-feedback
+st.sidebar.write("Any suggestions or improvements of the tool?")
+st.siderbar.write(feedback)
