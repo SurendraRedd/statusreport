@@ -28,6 +28,13 @@ def save_data(data):
     with open(DATA_FILE, "w") as file:
         json.dump(data, file)
 
+def parse_date(date_str):
+    try:
+        return datetime.date.fromisoformat(date_str)
+    except ValueError:
+        st.error(f"Invalid date format: {date_str}")
+        return datetime.date.today()  # Or any default value you prefer
+
 # Initialize session state
 data = load_data()
 
@@ -44,10 +51,10 @@ if 'observations' not in st.session_state:
     st.session_state.observations = data['observations']
 
 if 'start_date' not in st.session_state:
-    st.session_state.start_date = datetime.date.fromisoformat(data['start_date'])
+    st.session_state.start_date = parse_date(data.get('start_date', datetime.date.today().isoformat()))
 
 if 'completed_date' not in st.session_state:
-    st.session_state.completed_date = datetime.date.fromisoformat(data['completed_date'])
+    st.session_state.completed_date = parse_date(data.get('completed_date', datetime.date.today().isoformat()))
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
@@ -248,6 +255,8 @@ data = {
     'completed_date': st.session_state.completed_date.isoformat()
 }
 save_data(data)
+
+
 
 # Display user_data.json content
 with st.expander("View JSON Data"):
