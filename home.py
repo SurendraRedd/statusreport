@@ -8,6 +8,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Main content
 content = """
 # Servat Execution Details 📋
 
@@ -35,7 +36,7 @@ with st.expander("Details"):
     st.image("images/Signature_Details.png")
     st.image("images/Signature_Details-1.png")
 
-# Styling for dark mode compatibility
+# Styling for dark mode compatibility and card colors
 card_style = """
 <style>
     .card {
@@ -50,83 +51,86 @@ card_style = """
     .card p {
         margin: 0;
     }
+    .released .card { background-color: rgba(34, 177, 76, 0.2); } /* Green for Released */
+    .inprogress .card { background-color: rgba(255, 165, 0, 0.2); } /* Orange for In-Progress */
+    .upcoming .card { background-color: rgba(0, 162, 232, 0.2); } /* Blue for Upcoming */
 </style>
 """
 
 st.markdown(card_style, unsafe_allow_html=True)
 
-# Expander for Released
-with st.expander("Released"):
+# Expander for Released (Expanded by default)
+with st.expander("✅ Released", expanded=True):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div class="card">
+        <div class="card released">
         <h4>Component 1</h4>
-        <p>Description of Component 1</p>
+        <p>Completed successfully</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div class="card">
+        <div class="card released">
         <h4>Component 2</h4>
-        <p>Description of Component 2</p>
+        <p>Completed successfully</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div class="card">
+        <div class="card released">
         <h4>Component 3</h4>
-        <p>Description of Component 3</p>
+        <p>Completed successfully</p>
         </div>
         """, unsafe_allow_html=True)
 
-# Expander for In-Progress
-with st.expander("In-Progress"):
+# Expander for In-Progress (Expanded by default)
+with st.expander("🚧 In-Progress", expanded=True):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div class="card">
+        <div class="card inprogress">
         <h4>Component 4</h4>
-        <p>Description of Component 4</p>
+        <p>Currently being worked on</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div class="card">
+        <div class="card inprogress">
         <h4>Component 5</h4>
-        <p>Description of Component 5</p>
+        <p>Currently being worked on</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div class="card">
+        <div class="card inprogress">
         <h4>Component 6</h4>
-        <p>Description of Component 6</p>
+        <p>Currently being worked on</p>
         </div>
         """, unsafe_allow_html=True)
 
-# Expander for Upcoming
-with st.expander("Upcoming"):
+# Expander for Upcoming (Expanded by default)
+with st.expander("🔜 Upcoming", expanded=True):
     cols = st.columns(3)
     with cols[0]:
         st.markdown("""
-        <div class="card">
+        <div class="card upcoming">
         <h4>Component 7</h4>
-        <p>Description of Component 7</p>
+        <p>Planned for future release</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[1]:
         st.markdown("""
-        <div class="card">
+        <div class="card upcoming">
         <h4>Component 8</h4>
-        <p>Description of Component 8</p>
+        <p>Planned for future release</p>
         </div>
         """, unsafe_allow_html=True)
     with cols[2]:
         st.markdown("""
-        <div class="card">
+        <div class="card upcoming">
         <h4>Component 9</h4>
-        <p>Description of Component 9</p>
+        <p>Planned for future release</p>
         </div>
         """, unsafe_allow_html=True)
 
