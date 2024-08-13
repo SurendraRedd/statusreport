@@ -55,6 +55,9 @@ if 'observations' not in st.session_state:
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
+    if key not in st.session_state.todo_states:
+        st.session_state.todo_states[key] = False  # Initialize the key with a default value
+    
     for item in items:
         func, text = item
         checked = st.session_state.todo_states[key]
@@ -179,7 +182,8 @@ with tab2:
             to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "18")
             to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "19")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "20")
-            home_switch_value4 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
+            st.write("---")
+            home_switch_value4 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
             st.session_state.home_switches["homeswitch4"] = home_switch_value4
             if home_switch_value4:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
@@ -193,7 +197,8 @@ with tab2:
             to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "22")
             to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "23")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "24")
-            home_switch_value5 = st.checkbox(":memo: Installation with PVC (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
+            st.write("---")
+            home_switch_value5 = st.checkbox("Installation with PVC Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
             st.session_state.home_switches["homeswitch5"] = home_switch_value5
             if home_switch_value5:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
@@ -207,36 +212,29 @@ with tab2:
             to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "26")
             to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "27")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
-            home_switch_value6 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
+            st.write("---")
+            home_switch_value6 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
             st.session_state.home_switches["homeswitch6"] = home_switch_value6
             if home_switch_value6:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
                 st.metric(label=":checkered_flag: Completed", value="No", delta="")
 
-    txt1 = st.text_area(":memo: Observations", value=st.session_state.observations)
-    st.session_state.observations = txt1
+    txt2 = st.text_area(":memo: Notes", value=st.session_state.notes)
+    st.session_state.notes = txt2
 
     if home_switch_value4 and home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
+        end_date_2 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
     elif not home_switch_value4 and not home_switch_value5 and not home_switch_value6:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
         st.info('Overall Status: :hourglass_flowing_sand: In Progress', icon="ℹ️")
 
-# Save data on each interaction
-data = {
+# Save the data when the app exits
+save_data({
     'todo_states': st.session_state.todo_states,
     'home_switches': st.session_state.home_switches,
     'notes': st.session_state.notes,
     'observations': st.session_state.observations
-}
-save_data(data)
-
-# Display user_data.json content
-with st.expander("View JSON Data"):
-    with open(DATA_FILE, "r") as file:
-        st.write(DATA_FILE)
-        json_data = json.load(file)
-        st.json(json_data)
+})
