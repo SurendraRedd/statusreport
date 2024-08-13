@@ -219,7 +219,6 @@ with tab2:
 
     if home_switch_value4 and home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
     elif not home_switch_value4 and not home_switch_value5 and not home_switch_value6:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
