@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_chat import message
 
 # Title of the app
-st.title("🤖 Servat Execution Status Bot")
+st.title("Servat Execution Status Bot")
 
 # Instructions
 st.write("Welcome to the Servat Execution Status Bot! 🌟 Feel free to ask me anything about the tool and its execution status. Here are some example questions you can ask:")
@@ -42,7 +42,7 @@ for question in questions_and_answers.keys():
     st.write(f"- {question}")
 
 # User input
-user_input = st.text_input("User:", "")
+user_input = st.text_input("**:robot_face:User:**", "What is this tool about?")
 
 # Responses based on user input
 if user_input:
