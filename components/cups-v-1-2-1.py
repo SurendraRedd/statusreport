@@ -16,19 +16,8 @@ def load_data():
         with open(DATA_FILE, "r") as file:
             return json.load(file)
     return {
-        'todo_states': {
-            f"{TOOL_VERSION}-1": False, f"{TOOL_VERSION}-2": False, f"{TOOL_VERSION}-3": False, f"{TOOL_VERSION}-4": False,
-            f"{TOOL_VERSION}-5": False, f"{TOOL_VERSION}-6": False, f"{TOOL_VERSION}-7": False, f"{TOOL_VERSION}-8": False,
-            f"{TOOL_VERSION}-9": False, f"{TOOL_VERSION}-10": False, f"{TOOL_VERSION}-11": False, f"{TOOL_VERSION}-12": False,
-            f"{TOOL_VERSION}-13": False, f"{TOOL_VERSION}-14": False, f"{TOOL_VERSION}-15": False, f"{TOOL_VERSION}-16": False,
-            f"{TOOL_VERSION}-17": False, f"{TOOL_VERSION}-18": False, f"{TOOL_VERSION}-19": False, f"{TOOL_VERSION}-20": False,
-            f"{TOOL_VERSION}-21": False, f"{TOOL_VERSION}-22": False, f"{TOOL_VERSION}-23": False, f"{TOOL_VERSION}-24": False,
-            f"{TOOL_VERSION}-25": False, f"{TOOL_VERSION}-26": False, f"{TOOL_VERSION}-27": False, f"{TOOL_VERSION}-28": False
-        },
-        'home_switches': {
-            f"{TOOL_VERSION}-homeswitch1": False, f"{TOOL_VERSION}-homeswitch2": False, f"{TOOL_VERSION}-homeswitch3": False,
-            f"{TOOL_VERSION}-homeswitch4": False, f"{TOOL_VERSION}-homeswitch5": False, f"{TOOL_VERSION}-homeswitch6": False
-        },
+        'todo_states': {f"{TOOL_VERSION}-{i}": False for i in range(1, 29)},
+        'home_switches': {f"{TOOL_VERSION}-homeswitch{i}": False for i in range(1, 7)},
         'notes': "",
         'observations': ""
     }
@@ -41,6 +30,7 @@ def save_data(data):
 # Initialize session state
 data = load_data()
 
+# Ensure all keys are initialized in session state
 if 'todo_states' not in st.session_state:
     st.session_state.todo_states = data['todo_states']
 
@@ -122,8 +112,8 @@ with tab1:
             to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "7")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "8")
             st.write("---")
-            home_switch_value1 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
-            st.session_state.home_switches["homeswitch1"] = home_switch_value1
+            home_switch_value1 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch1"], key="homeswitch1")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch1"] = home_switch_value1
             if home_switch_value1:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
@@ -137,8 +127,8 @@ with tab1:
             to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "11")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "12")
             st.write("---")
-            home_switch_value2 = st.checkbox("Installation with PVC Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
-            st.session_state.home_switches["homeswitch2"] = home_switch_value2
+            home_switch_value2 = st.checkbox("Installation with PVC Stage Completed (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch2"], key="homeswitch2")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch2"] = home_switch_value2
             if home_switch_value2:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
@@ -152,8 +142,8 @@ with tab1:
             to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "15")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "16")
             st.write("---")
-            home_switch_value3 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
-            st.session_state.home_switches["homeswitch3"] = home_switch_value3
+            home_switch_value3 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch3"], key="homeswitch3")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch3"] = home_switch_value3
             if home_switch_value3:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
@@ -183,8 +173,8 @@ with tab2:
             to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "19")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "20")
             st.write("---")
-            home_switch_value4 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
-            st.session_state.home_switches["homeswitch4"] = home_switch_value4
+            home_switch_value4 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch4"], key="homeswitch4")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch4"] = home_switch_value4
             if home_switch_value4:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
@@ -198,8 +188,8 @@ with tab2:
             to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "23")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "24")
             st.write("---")
-            home_switch_value5 = st.checkbox("Installation with PVC Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
-            st.session_state.home_switches["homeswitch5"] = home_switch_value5
+            home_switch_value5 = st.checkbox("Installation with PVC Stage Completed (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch5"], key="homeswitch5")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch5"] = home_switch_value5
             if home_switch_value5:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
@@ -213,8 +203,8 @@ with tab2:
             to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "27")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
             st.write("---")
-            home_switch_value6 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
-            st.session_state.home_switches["homeswitch6"] = home_switch_value6
+            home_switch_value6 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch6"], key="homeswitch6")
+            st.session_state.home_switches[f"{TOOL_VERSION}-homeswitch6"] = home_switch_value6
             if home_switch_value6:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
