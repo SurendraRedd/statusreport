@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_chat import message
 
 # Title of the app
 st.title("🤖 Servat Execution Status Bot")
@@ -50,5 +51,8 @@ if user_input:
         "Feel free to ask one of the example questions or anything related to the tool's operations! 💬🔍"
     )
     
+    # Display the user message
+    message(user_input, is_user=True)
+
     # Display the response
-    st.write("Bot:", response)
+    message(response)
