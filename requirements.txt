@@ -9,3 +9,4 @@ streamlit-authenticator
 extra-streamlit-components
 streamlit-pretty-notification-box
 streamlit-feedback
+streamlit-chat
