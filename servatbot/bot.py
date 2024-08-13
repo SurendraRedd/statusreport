@@ -1,10 +1,6 @@
 import streamlit as st
 from streamlit_chat import message
 
-# Initialize session state for storing history
-if 'history' not in st.session_state:
-    st.session_state.history = []
-
 # Title of the app
 st.title("🤖 Servat Execution Status Bot")
 
@@ -50,25 +46,13 @@ user_input = st.text_input("User:", "")
 
 # Responses based on user input
 if user_input:
-    # Add the user input to the history
-    st.session_state.history.append({"user": user_input})
-    
-    response = questions_and_answers.get(
-        user_input,
+    response = questions_and_answers.get(user_input, 
         "🤔 Sorry, I didn't catch that. I can help with information about the tool's execution status. "
         "Feel free to ask one of the example questions or anything related to the tool's operations! 💬🔍"
     )
+    
+    # Display the user message
+    message(user_input, is_user=True)
 
-    # Add the bot response to the history
-    st.session_state.history.append({"bot": response})
-
-# Display chat history
-for chat in st.session_state.history:
-    if "user" in chat:
-        message(chat["user"], is_user=True)
-    elif "bot" in chat:
-        message(chat["bot"])
-
-# Clear chat history button
-if st.button("Clear Chat History"):
-    st.session_state.history.clear()
+    # Display the response
+    message(response)
