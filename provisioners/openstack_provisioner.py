@@ -61,7 +61,7 @@ with col1:
         else:
             st.metric(label=":point_down: Completed", value="No", delta="")
 
-with col3:
+with col2:
     st.subheader("Uninstallation")
     with st.expander("Details", expanded=True):
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"14",)
