@@ -29,7 +29,8 @@ hide_footer_style = """
 st.markdown(hide_footer_style, unsafe_allow_html=True)
 
 st.title(":point_down: OpenStack Provisioner V1.0.0 - :blue[Execution Status]")
-st.markdown("---")
+
+start_date5 = st.date_input(":point_right: Execution Start Date", datetime.date(2024, 8, 27))
 
 st.subheader("Prerequisites")
 with st.expander("Details", expanded=True):
@@ -39,10 +40,6 @@ with st.expander("Details", expanded=True):
     to_do([(st.write, "Installation Specification Signature Completed ?")],"4",)
 
 st.subheader("Workflows")
-start_date5 = st.date_input(":point_right: Execution Start Date", datetime.date(2024, 8, 27))
-st.write("\n")
-
-st.subheader("Dev Machine Execution Details")
 
 # Create three columns
 col1, col2= st.columns(2)
