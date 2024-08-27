@@ -64,6 +64,7 @@ with col1:
 with col2:
     st.subheader("Uninstallation")
     with st.expander("Details", expanded=True):
+        to_do([(st.write, "Installation SEQ Signature Completed?")],"7",)
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"14",)
         to_do([(st.write, "Uninstallation SEQ Signature Completed?")],"15",)
         to_do([(st.write, "Servat Execution Completed?")],"16",)
