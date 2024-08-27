@@ -39,14 +39,12 @@ with st.expander("Details", expanded=True):
     to_do([(st.write, "Installation Guide Signature Completed ?")],"3",)
     to_do([(st.write, "Installation Specification Signature Completed ?")],"4",)
 
-st.subheader("Workflows")
-
 # Create three columns
 col1, col2= st.columns(2)
 
 # Status in each column
 with col1:
-    st.subheader("Installation")
+    st.subheader("Workflow1 : Installation")
     with st.expander("Details", expanded=True):
         to_do([(st.write, "Initial SEQ Signature Completed?")],"5",)
         to_do([(st.write, "Installation Plan & Report Signature Completed?")],"6",)
@@ -59,7 +57,7 @@ with col1:
             st.metric(label=":point_down: Completed", value="No", delta="")
 
 with col2:
-    st.subheader("Uninstallation")
+    st.subheader("Workflow2 : Uninstallation")
     with st.expander("Details", expanded=True):
         to_do([(st.write, "Installation SEQ Signature Completed?")],"17",)
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"14",)
