@@ -54,7 +54,7 @@ st.markdown(card_style, unsafe_allow_html=True)
 
 # Expander for Released (Expanded by default)
 with st.expander("✅ Released", expanded=False):
-    cols = st.columns(5)
+    cols = st.columns(6)
     with cols[0]:
         st.markdown("""
         <div class="card released">
@@ -92,25 +92,49 @@ with st.expander("✅ Released", expanded=False):
         </div>
         """, unsafe_allow_html=True)
 
+    with cols[5]:
+        st.markdown("""
+        <div class="card released">
+        <h4>Logging Collection</h4>
+        <p>V1.2.0</p>
+        </div>
+        """, unsafe_allow_html=True)
+
 # Expander for In-Progress (Expanded by default)
 with st.expander("🚧 In-Progress", expanded=True):
     cols = st.columns(1)
     with cols[0]:
         st.markdown("""
         <div class="card inprogress">
-        <h4>Logging Collection</h4>
-        <p>V1.2.0</p>
+        <h4>Open Stack Provisioner</h4>
+        <p>V1.0.0</p>
         </div>
         """, unsafe_allow_html=True)
 
 # Expander for Upcoming (Expanded by default)
 with st.expander("🔜 Upcoming", expanded=False):
-    cols = st.columns(1)
+    cols = st.columns(3)
     with cols[0]:
         st.markdown("""
         <div class="card upcoming">
-        <h4>Open Stack Provisioner</h4>
+        <h4>Azure Provisioner</h4>
+        <p>V1.0.1</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with cols[1]:
+        st.markdown("""
+        <div class="card upcoming">
+        <h4>MES Operator</h4>
         <p>V1.0.0</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with cols[2]:
+        st.markdown("""
+        <div class="card upcoming">
+        <h4>TBD</h4>
+        <p>TBD</p>
         </div>
         """, unsafe_allow_html=True)
 
