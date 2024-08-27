@@ -64,7 +64,7 @@ with col1:
 with col2:
     st.subheader("Uninstallation")
     with st.expander("Details", expanded=True):
-        to_do([(st.write, "Installation SEQ Signature Completed?")],"7",)
+        to_do([(st.write, "Installation SEQ Signature Completed?")],"17",)
         to_do([(st.write, "Uninstallation Plan & Report Signature Completed?")],"14",)
         to_do([(st.write, "Uninstallation SEQ Signature Completed?")],"15",)
         to_do([(st.write, "Servat Execution Completed?")],"16",)
@@ -78,7 +78,7 @@ txt = st.text_area("Notes", "")
 
 if home_switch_value1 and home_switch_value3:
     st.success('Overall Status: :point_right: Completed', icon="✅")
-    end_date5 = st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 23, 5))
+    end_date5 = st.date_input(":point_right: Execution Completed Date", datetime.date(2024, 8, 28))
 elif not home_switch_value1 and not home_switch_value3:
     st.warning('Overall Status: :point_right: Not Started', icon="⚠️")
 else:
