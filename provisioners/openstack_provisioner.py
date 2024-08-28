@@ -32,6 +32,14 @@ st.title(":point_down: OpenStack Provisioner V1.0.0 - :blue[Execution Status]")
 
 start_date5 = st.date_input(":point_right: Execution Start Date", datetime.date(2024, 8, 27))
 
+col3, col4= st.columns(2)
+with col3:
+    with st.expander("Signature Details"):    
+        st.image("images/Signature_Details.png")
+with col4:
+    with st.expander("Signature Details"):    
+        st.image("images/Signature_Details-1.png")
+
 st.subheader("Prerequisites")
 with st.expander("Details", expanded=True):
     to_do([(st.write, "OSM Signature Completed ?")],"1",)
