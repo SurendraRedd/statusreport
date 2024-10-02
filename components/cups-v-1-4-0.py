@@ -194,6 +194,48 @@ with tab2:
     else:
         st.info('Overall Status: :hourglass_flowing_sand: In Progress', icon="ℹ️")
 
+with tab3:
+    # Create three columns
+    col1, col2 = st.columns(2)
+
+    # Status in each column
+    with col1:
+        st.subheader(":hammer_and_wrench: Installation")
+        with st.expander("Activities", expanded=True):
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "29")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "30")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "31")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
+            home_switch_value5 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
+            st.session_state.home_switches["homeswitch5"] = home_switch_value5
+            if home_switch_value5:
+                st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
+            else:
+                st.metric(label=":checkered_flag: Completed", value="No", delta="")
+    with col2:
+        st.subheader(":wastebasket: Uninstallation")
+        with st.expander("Activities", expanded=True):
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "33")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "34")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "35")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "36")
+            home_switch_value6 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
+            st.session_state.home_switches["homeswitch6"] = home_switch_value4
+            if home_switch_value6:
+                st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
+            else:
+                st.metric(label=":checkered_flag: Completed", value="No", delta="")
+
+    txt1 = st.text_area(":memo: Observations", value=st.session_state.observations)
+    st.session_state.observations = txt1
+
+    if home_switch_value5 and home_switch_value6:
+        st.success('Overall Status: :trophy: Completed', icon="✅")
+    elif not home_switch_value5 and not home_switch_value6:
+        st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
+    else:
+        st.info('Overall Status: :hourglass_flowing_sand: In Progress', icon="ℹ️")
+
 # Save data on each interaction
 data = {
     'todo_states': st.session_state.todo_states,
