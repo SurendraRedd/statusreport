@@ -135,7 +135,7 @@ with tab1:
             to_do([(st.write, ":memo: Servat Execution Completed?")], "16")
             st.write("---")
             home_switch_value2 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
-            st.session_state.home_switches["homeswitch3"] = home_switch_value3
+            st.session_state.home_switches["homeswitch2"] = home_switch_value2
             if home_switch_value2:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
