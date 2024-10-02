@@ -59,6 +59,7 @@ def main():
         "🥇 Components" : [
             st.Page("components/cups-v-1-2-1.py", icon="🖨️", title="CUPS-V1.2.1"),
             st.Page("components/cups-v-1-3-0.py", icon="🖨️", title="CUPS-V1.3.0"),
+            st.Page("components/cups-v-1-4-0.py", icon="🖨️", title="CUPS-V1.4.0"),
             st.Page("components/logcollection-v-1-1-2.py", icon="📝", title="LC-V1.1.2"),
             st.Page("components/logcollection-v-1-2-0.py", icon="📝", title="LC-V1.2.0"),
             st.Page("components/metrics_collection.py", icon="📊", title="Metrics Collection"),
