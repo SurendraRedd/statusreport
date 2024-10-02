@@ -226,7 +226,7 @@ with tab3:
             else:
                 st.metric(label=":checkered_flag: Completed", value="No", delta="")
 
-    txt1 = st.text_area(":memo: Observations", value=st.session_state.observations)
+    txt2 = st.text_area(":memo: Observations", value=st.session_state.observations)
     st.session_state.observations = txt2
 
     if home_switch_value5 and home_switch_value6:
