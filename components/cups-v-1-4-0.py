@@ -52,6 +52,7 @@ if 'notes' not in st.session_state:
 
 if 'observations' not in st.session_state:
     st.session_state.observations = data['observations']
+    st.session_state.observations1 = data['observations']
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
@@ -227,7 +228,7 @@ with tab3:
                 st.metric(label=":checkered_flag: Completed", value="No", delta="")
 
     txt2 = st.text_area(":memo: Observations", value=st.session_state.observations)
-    st.session_state.observations = txt2
+    st.session_state.observations1 = txt2
 
     if home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
