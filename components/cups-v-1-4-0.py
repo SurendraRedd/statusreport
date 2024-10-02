@@ -202,10 +202,10 @@ with tab3:
     with col1:
         st.subheader(":hammer_and_wrench: Installation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "29")
-            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "30")
-            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "31")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "21")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "22")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "23")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "24")
             home_switch_value5 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
             st.session_state.home_switches["homeswitch5"] = home_switch_value5
             if home_switch_value5:
@@ -215,10 +215,10 @@ with tab3:
     with col2:
         st.subheader(":wastebasket: Uninstallation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "33")
-            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "34")
-            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "35")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "36")
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "25")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "26")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "27")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
             home_switch_value6 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
             st.session_state.home_switches["homeswitch6"] = home_switch_value4
             if home_switch_value6:
