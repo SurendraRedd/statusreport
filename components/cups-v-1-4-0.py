@@ -189,7 +189,7 @@ with tab2:
 
     if home_switch_value3 and home_switch_value4:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-    elif not home_switch_value4 and not home_switch_value5:
+    elif not home_switch_value3 and not home_switch_value4:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
         st.info('Overall Status: :hourglass_flowing_sand: In Progress', icon="ℹ️")
