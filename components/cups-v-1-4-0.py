@@ -52,6 +52,8 @@ if 'notes' not in st.session_state:
 
 if 'observations' not in st.session_state:
     st.session_state.observations = data['observations']
+
+if 'observations1' not in st.session_state:
     st.session_state.observations1 = data['observations1']
 
 # Function to display to-do items with checkboxes
