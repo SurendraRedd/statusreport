@@ -27,7 +27,8 @@ def load_data():
         },
         'home_switches': {
             f"{TOOL_VERSION}-homeswitch1": False, f"{TOOL_VERSION}-homeswitch2": False, f"{TOOL_VERSION}-homeswitch3": False,
-            f"{TOOL_VERSION}-homeswitch4": False, f"{TOOL_VERSION}-homeswitch5": False, f"{TOOL_VERSION}-homeswitch6": False
+            f"{TOOL_VERSION}-homeswitch4": False, f"{TOOL_VERSION}-homeswitch5": False, f"{TOOL_VERSION}-homeswitch6": False,
+            f"{TOOL_VERSION}-homeswitch7": False, f"{TOOL_VERSION}-homeswitch8": False
         },
         'notes': "",
         'observations': ""
