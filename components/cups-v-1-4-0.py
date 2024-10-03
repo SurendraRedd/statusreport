@@ -43,6 +43,7 @@ def save_data(data):
 
 # Initialize session state
 data = load_data()
+st.write(data)
 
 if 'todo_states' not in st.session_state:
     st.session_state.todo_states = data['todo_states']
