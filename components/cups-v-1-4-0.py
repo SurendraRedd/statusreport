@@ -125,10 +125,10 @@ with tab1:
     with col1:
         st.subheader(":hammer_and_wrench: Installation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "5")
-            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "6")
-            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "7")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "8")
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "1")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "2")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "3")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "4")
             st.write("---")
             home_switch_value1 = st.checkbox("Installation Stage Completed (Yes/No)", value=st.session_state.home_switches["homeswitch1"], key="homeswitch1")
             st.session_state.home_switches["homeswitch1"] = home_switch_value1
@@ -140,10 +140,10 @@ with tab1:
     with col2:
         st.subheader(":wastebasket: Uninstallation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "9")
-            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "10")
-            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "11")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "12")
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "5")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "6")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "7")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "8")
             st.write("---")
             home_switch_value2 = st.checkbox("Uninstallation Status (Yes/No)", value=st.session_state.home_switches["homeswitch2"], key="homeswitch2")
             st.session_state.home_switches["homeswitch2"] = home_switch_value2
@@ -171,10 +171,10 @@ with tab2:
     with col1:
         st.subheader(":hammer_and_wrench: Installation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "13")
-            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "14")
-            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "15")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "16")
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "9")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "10")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "11")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "12")
             home_switch_value3 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch3"], key="homeswitch3")
             st.session_state.home_switches["homeswitch3"] = home_switch_value3
             if home_switch_value3:
@@ -184,10 +184,10 @@ with tab2:
     with col2:
         st.subheader(":wastebasket: Uninstallation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "17")
-            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "18")
-            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "19")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "20")
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "13")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "14")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "15")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "16")
             home_switch_value4 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch4"], key="homeswitch4")
             st.session_state.home_switches["homeswitch4"] = home_switch_value4
             if home_switch_value4:
@@ -213,10 +213,10 @@ with tab3:
     with col1:
         st.subheader(":hammer_and_wrench: Installation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "21")
-            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "22")
-            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "23")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "24")
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "17")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "18")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "19")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "20")
             home_switch_value5 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
             st.session_state.home_switches["homeswitch5"] = home_switch_value5
             if home_switch_value5:
@@ -226,10 +226,10 @@ with tab3:
     with col2:
         st.subheader(":wastebasket: Uninstallation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "25")
-            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "26")
-            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "27")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "21")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "22")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "23")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "24")
             home_switch_value6 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
             st.session_state.home_switches["homeswitch6"] = home_switch_value6
             if home_switch_value6:
@@ -255,10 +255,10 @@ with tab4:
     with col1:
         st.subheader(":hammer_and_wrench: Installation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "29")
-            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "30")
-            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "31")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
+            to_do([(st.write, ":memo: Initial SEQ Signature Completed?")], "25")
+            to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "26")
+            to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "27")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
             st.write(st.session_state.home_switches)
             home_switch_value7 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch7"], key="homeswitch7")
             st.session_state.home_switches["homeswitch7"] = home_switch_value7
@@ -269,10 +269,10 @@ with tab4:
     with col2:
         st.subheader(":wastebasket: Uninstallation")
         with st.expander("Activities", expanded=True):
-            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "33")
-            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "34")
-            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "35")
-            to_do([(st.write, ":memo: Servat Execution Completed?")], "36")
+            to_do([(st.write, ":memo: Installation with PVC SEQ Signature Completed?")], "29")
+            to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "30")
+            to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "31")
+            to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
             home_switch_value8 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch8"], key="homeswitch8")
             st.session_state.home_switches["homeswitch8"] = home_switch_value8
             if home_switch_value8:
