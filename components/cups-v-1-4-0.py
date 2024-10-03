@@ -45,7 +45,6 @@ def save_data(data):
 
 # Initialize session state
 data = load_data()
-st.write(data)
 
 if 'todo_states' not in st.session_state:
     st.session_state.todo_states = data['todo_states']
@@ -261,7 +260,7 @@ with tab4:
             to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "31")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
             st.write(st.session_state.home_switches)
-            home_switch_value7 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch7"], key="homeswitch7")
+            home_switch_value7 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch5"], key="homeswitch5")
             st.session_state.home_switches["homeswitch7"] = home_switch_value7
             if home_switch_value7:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
@@ -274,7 +273,7 @@ with tab4:
             to_do([(st.write, ":memo: Uninstallation Plan & Report Signature Completed?")], "34")
             to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "35")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "36")
-            home_switch_value8 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch8"], key="homeswitch8")
+            home_switch_value8 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
             st.session_state.home_switches["homeswitch8"] = home_switch_value8
             if home_switch_value8:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
