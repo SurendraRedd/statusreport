@@ -257,7 +257,7 @@ with tab4:
             to_do([(st.write, ":memo: Installation Plan & Report Signature Completed?")], "30")
             to_do([(st.write, ":memo: Installation SEQ Signature Completed?")], "31")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "32")
-            print(st.session_state.home_switches)
+            st.write(st.session_state.home_switches)
             home_switch_value7 = st.checkbox(":memo: Installation (Yes/No)", value=st.session_state.home_switches["homeswitch7"], key="homeswitch7")
             st.session_state.home_switches["homeswitch7"] = home_switch_value7
             if home_switch_value7:
