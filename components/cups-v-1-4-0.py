@@ -23,7 +23,9 @@ def load_data():
             f"{TOOL_VERSION}-13": False, f"{TOOL_VERSION}-14": False, f"{TOOL_VERSION}-15": False, f"{TOOL_VERSION}-16": False,
             f"{TOOL_VERSION}-17": False, f"{TOOL_VERSION}-18": False, f"{TOOL_VERSION}-19": False, f"{TOOL_VERSION}-20": False,
             f"{TOOL_VERSION}-21": False, f"{TOOL_VERSION}-22": False, f"{TOOL_VERSION}-23": False, f"{TOOL_VERSION}-24": False,
-            f"{TOOL_VERSION}-25": False, f"{TOOL_VERSION}-26": False, f"{TOOL_VERSION}-27": False, f"{TOOL_VERSION}-28": False
+            f"{TOOL_VERSION}-25": False, f"{TOOL_VERSION}-26": False, f"{TOOL_VERSION}-27": False, f"{TOOL_VERSION}-28": False,
+            f"{TOOL_VERSION}-29": False, f"{TOOL_VERSION}-30": False, f"{TOOL_VERSION}-31": False, f"{TOOL_VERSION}-32": False,
+            f"{TOOL_VERSION}-33": False, f"{TOOL_VERSION}-34": False, f"{TOOL_VERSION}-35": False, f"{TOOL_VERSION}-36": False
         },
         'home_switches': {
             f"{TOOL_VERSION}-homeswitch1": False, f"{TOOL_VERSION}-homeswitch2": False, f"{TOOL_VERSION}-homeswitch3": False,
