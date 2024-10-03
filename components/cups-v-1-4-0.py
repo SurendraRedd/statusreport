@@ -31,7 +31,9 @@ def load_data():
             f"{TOOL_VERSION}-homeswitch7": False, f"{TOOL_VERSION}-homeswitch8": False
         },
         'notes': "",
-        'observations': ""
+        'observations': "",
+        'observations1': "",
+        'observations2': ""
     }
 
 # Function to save data to the file
@@ -227,7 +229,7 @@ with tab3:
             to_do([(st.write, ":memo: Uninstallation SEQ Signature Completed?")], "27")
             to_do([(st.write, ":memo: Servat Execution Completed?")], "28")
             home_switch_value6 = st.checkbox(":memo: Uninstallation (Yes/No)", value=st.session_state.home_switches["homeswitch6"], key="homeswitch6")
-            st.session_state.home_switches["homeswitch6"] = home_switch_value4
+            st.session_state.home_switches["homeswitch6"] = home_switch_value6
             if home_switch_value6:
                 st.metric(label=":checkered_flag: Completed", value="Yes", delta="")
             else:
