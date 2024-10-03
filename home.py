@@ -54,7 +54,7 @@ st.markdown(card_style, unsafe_allow_html=True)
 
 # Expander for Released (Expanded by default)
 with st.expander("✅ Released", expanded=False):
-    cols = st.columns(6)
+    cols = st.columns(7)
     with cols[0]:
         st.markdown("""
         <div class="card released">
@@ -100,14 +100,22 @@ with st.expander("✅ Released", expanded=False):
         </div>
         """, unsafe_allow_html=True)
 
+    with cols[6]:
+        st.markdown("""
+        <div class="card released">
+        <h4>Open Stack Provisioner</h4>
+        <p>V1.0.0</p>
+        </div>
+        """, unsafe_allow_html=True)
+
 # Expander for In-Progress (Expanded by default)
 with st.expander("🚧 In-Progress", expanded=True):
     cols = st.columns(1)
     with cols[0]:
         st.markdown("""
         <div class="card inprogress">
-        <h4>Open Stack Provisioner</h4>
-        <p>V1.0.0</p>
+        <h4>CUPS</h4>
+        <p>V1.4.0</p>
         </div>
         """, unsafe_allow_html=True)
 
