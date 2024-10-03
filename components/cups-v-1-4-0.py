@@ -57,7 +57,7 @@ if 'observations1' not in st.session_state:
     st.session_state.observations1 = data['observations1']
 
 if 'observations2' not in st.session_state:
-    st.session_state.observations1 = data['observations2']
+    st.session_state.observations2 = data['observations2']
 
 # Function to display to-do items with checkboxes
 def to_do(items, key):
