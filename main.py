@@ -48,7 +48,7 @@ def main():
 
     # Sidebar content
     st.sidebar.title("📈 Execution Tool ")
-    st.sidebar.markdown("**Version:** `1.0.0`")
+    st.sidebar.markdown("**Version:** `1.0.1`")
     st.sidebar.markdown("**Developed by:** Servat Team")    
 
     # Navigation pages
