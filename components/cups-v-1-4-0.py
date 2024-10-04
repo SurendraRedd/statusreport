@@ -51,7 +51,6 @@ if 'todo_states' not in st.session_state:
 
 if 'home_switches' not in st.session_state:
     st.session_state.home_switches = data['home_switches']
-    st.write(st.session_state.home_switches)
 
 if 'notes' not in st.session_state:
     st.session_state.notes = data['notes']
