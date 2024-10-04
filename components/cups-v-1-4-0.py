@@ -202,7 +202,7 @@ with tab2:
 
     if home_switch_value3 and home_switch_value4:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        end_date_3 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
+        end_date_3 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 24))
     elif not home_switch_value3 and not home_switch_value4:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
@@ -247,7 +247,7 @@ with tab3:
 
     if home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        end_date_4 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
+        end_date_4 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 25))
     elif not home_switch_value5 and not home_switch_value6:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
@@ -292,7 +292,7 @@ with tab4:
 
     if home_switch_value5 and home_switch_value6:
         st.success('Overall Status: :trophy: Completed', icon="✅")
-        end_date_5 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 23))
+        end_date_5 = st.date_input(":calendar: Execution Completed Date", datetime.date(2024, 5, 26))
     elif not home_switch_value5 and not home_switch_value6:
         st.warning('Overall Status: :hourglass: Not Started', icon="⚠️")
     else:
